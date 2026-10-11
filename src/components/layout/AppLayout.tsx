@@ -54,7 +54,6 @@ export const AppLayout: React.FC = () => {
     { name: 'Members', to: '/members', icon: Users },
     { name: 'Tasks', to: '/tasks', icon: CheckSquare },
     { name: 'Assignments', to: '/assignments', icon: Sparkles },
-    { name: 'Resources', to: '/resources', icon: Package },
     { name: 'Calendar', to: '/calendar', icon: CalendarIcon },
     { name: 'Analytics', to: '/analytics', icon: BarChart3 },
     {

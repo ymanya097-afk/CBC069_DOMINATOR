@@ -100,7 +100,7 @@ export default function App() {
                   <Route path="/members" element={<MembersPage />} />
                   <Route path="/tasks" element={<TasksPage />} />
                   <Route path="/assignments" element={<AssignmentsPage />} />
-                  <Route path="/resources" element={<ResourcesPage />} />
+                  <Route path="/resources" element={<Navigate to="/dashboard" replace />} />
                   <Route path="/calendar" element={<CalendarPage />} />
                   <Route path="/analytics" element={<AnalyticsPage />} />
                   <Route path="/notifications" element={<NotificationsPage />} />

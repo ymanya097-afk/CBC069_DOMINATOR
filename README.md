@@ -12,7 +12,6 @@ Automatic task assignment with a short reason
 Accept, reject or request reassignment
 Auto reassignment when a member becomes busy
 Live dashboard, calendar, analytics and notifications
-Resource tracking for supplies, appliances, tools and bills
 Tech Stack
 
 React, TypeScript, Tailwind CSS, Node.js, Express, Supabase
