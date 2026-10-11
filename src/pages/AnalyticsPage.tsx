@@ -71,7 +71,7 @@ export const AnalyticsPage: React.FC = () => {
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
-              className="h-20 bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] animate-pulse"
+              className="h-20 bg-[#FFFFFF] dark:bg-[#1C2638] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 rounded-[6px] animate-pulse"
             />
           ))}
         </div>
@@ -85,10 +85,10 @@ export const AnalyticsPage: React.FC = () => {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="font-heading font-semibold text-lg text-[#075985] dark:text-[#FFFFFF]">
+        <h1 className="font-heading font-semibold text-lg text-[#1E2430] dark:text-[#FFFFFF]">
           Household Analytics &amp; Reports
         </h1>
-        <p className="text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75 font-sans">
+        <p className="text-xs text-[#6B7280] dark:text-[#FFFFFF]/70 font-sans">
           Workload balance, completion efficiency, and chore performance metrics
         </p>
       </div>
@@ -96,76 +96,76 @@ export const AnalyticsPage: React.FC = () => {
       {/* Figures Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
         {/* Completed */}
-        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-3 flex flex-col justify-between">
-          <div className="flex items-center justify-between text-[#075985]/70 dark:text-[#E0F2FE]/75">
+        <div className="bg-[#FFFFFF] dark:bg-[#1C2638] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 rounded-[6px] p-3 flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#6B7280] dark:text-[#FFFFFF]/70">
             <span className="text-[10px] font-heading font-medium uppercase tracking-wider">Completed</span>
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#4F94E8] dark:text-[#FFFFFF]" />
           </div>
-          <div className="mt-2 text-xl font-heading font-semibold text-[#0EA5E9] dark:text-[#FFFFFF]">
+          <div className="mt-2 text-xl font-heading font-semibold text-[#4F94E8] dark:text-[#FFFFFF]">
             {figures.completedCount}
           </div>
         </div>
 
         {/* Pending */}
-        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-3 flex flex-col justify-between">
-          <div className="flex items-center justify-between text-[#075985]/70 dark:text-[#E0F2FE]/75">
+        <div className="bg-[#FFFFFF] dark:bg-[#1C2638] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 rounded-[6px] p-3 flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#6B7280] dark:text-[#FFFFFF]/70">
             <span className="text-[10px] font-heading font-medium uppercase tracking-wider">Pending</span>
-            <Clock className="w-3.5 h-3.5 text-[#075985]/70 dark:text-[#E0F2FE]/75" />
+            <Clock className="w-3.5 h-3.5 text-[#6B7280] dark:text-[#FFFFFF]/70" />
           </div>
-          <div className="mt-2 text-xl font-heading font-semibold text-[#075985] dark:text-[#FFFFFF]">
+          <div className="mt-2 text-xl font-heading font-semibold text-[#1E2430] dark:text-[#FFFFFF]">
             {figures.pendingCount}
           </div>
         </div>
 
         {/* Overdue */}
-        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-3 flex flex-col justify-between border-l-3 border-l-[#0EA5E9] dark:border-l-[#0EA5E9]">
-          <div className="flex items-center justify-between text-[#075985] dark:text-[#FFFFFF]">
+        <div className="bg-[#FFFFFF] dark:bg-[#1C2638] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 rounded-[6px] p-3 flex flex-col justify-between border-l-3 border-l-[#4F94E8] dark:border-l-[#4F94E8]">
+          <div className="flex items-center justify-between text-[#1E2430] dark:text-[#FFFFFF]">
             <span className="text-[10px] font-heading font-bold uppercase tracking-wider">Overdue</span>
-            <AlertCircle className="w-3.5 h-3.5 text-[#075985] dark:text-[#FFFFFF]" />
+            <AlertCircle className="w-3.5 h-3.5 text-[#1E2430] dark:text-[#FFFFFF]" />
           </div>
-          <div className="mt-2 text-xl font-heading font-bold text-[#075985] dark:text-[#FFFFFF]">
+          <div className="mt-2 text-xl font-heading font-bold text-[#1E2430] dark:text-[#FFFFFF]">
             {figures.overdueCount}
           </div>
         </div>
 
         {/* Avg Completion Time */}
-        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-3 flex flex-col justify-between">
-          <div className="flex items-center justify-between text-[#075985]/70 dark:text-[#E0F2FE]/75">
+        <div className="bg-[#FFFFFF] dark:bg-[#1C2638] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 rounded-[6px] p-3 flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#6B7280] dark:text-[#FFFFFF]/70">
             <span className="text-[10px] font-heading font-medium uppercase tracking-wider">Avg Time</span>
-            <Timer className="w-3.5 h-3.5 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+            <Timer className="w-3.5 h-3.5 text-[#4F94E8] dark:text-[#FFFFFF]" />
           </div>
-          <div className="mt-2 text-xl font-heading font-semibold text-[#075985] dark:text-[#FFFFFF]">
-            {figures.avgCompletionHours} <span className="text-xs font-normal text-[#075985]/70 dark:text-[#E0F2FE]/75">hrs</span>
+          <div className="mt-2 text-xl font-heading font-semibold text-[#1E2430] dark:text-[#FFFFFF]">
+            {figures.avgCompletionHours} <span className="text-xs font-normal text-[#6B7280] dark:text-[#FFFFFF]/70">hrs</span>
           </div>
         </div>
 
         {/* Most Active Member */}
-        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-3 flex flex-col justify-between">
-          <div className="flex items-center justify-between text-[#075985]/70 dark:text-[#E0F2FE]/75">
+        <div className="bg-[#FFFFFF] dark:bg-[#1C2638] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 rounded-[6px] p-3 flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#6B7280] dark:text-[#FFFFFF]/70">
             <span className="text-[10px] font-heading font-medium uppercase tracking-wider">Most Active</span>
-            <Award className="w-3.5 h-3.5 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+            <Award className="w-3.5 h-3.5 text-[#4F94E8] dark:text-[#FFFFFF]" />
           </div>
           <div className="mt-2">
-            <div className="text-sm font-heading font-semibold text-[#075985] dark:text-[#FFFFFF] truncate">
+            <div className="text-sm font-heading font-semibold text-[#1E2430] dark:text-[#FFFFFF] truncate">
               {figures.mostActiveMember?.name || 'N/A'}
             </div>
-            <div className="text-[10px] text-[#0EA5E9] dark:text-[#FFFFFF] font-mono">
+            <div className="text-[10px] text-[#4F94E8] dark:text-[#FFFFFF] font-mono">
               {figures.mostActiveMember ? `${figures.mostActiveMember.completed} completed` : ''}
             </div>
           </div>
         </div>
 
         {/* Least Busy Member */}
-        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-3 flex flex-col justify-between">
-          <div className="flex items-center justify-between text-[#075985]/70 dark:text-[#E0F2FE]/75">
+        <div className="bg-[#FFFFFF] dark:bg-[#1C2638] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 rounded-[6px] p-3 flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#6B7280] dark:text-[#FFFFFF]/70">
             <span className="text-[10px] font-heading font-medium uppercase tracking-wider">Least Busy</span>
-            <Coffee className="w-3.5 h-3.5 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+            <Coffee className="w-3.5 h-3.5 text-[#4F94E8] dark:text-[#FFFFFF]" />
           </div>
           <div className="mt-2">
-            <div className="text-sm font-heading font-semibold text-[#075985] dark:text-[#FFFFFF] truncate">
+            <div className="text-sm font-heading font-semibold text-[#1E2430] dark:text-[#FFFFFF] truncate">
               {figures.leastBusyMember?.name || 'N/A'}
             </div>
-            <div className="text-[10px] text-[#0EA5E9] dark:text-[#FFFFFF] font-mono">
+            <div className="text-[10px] text-[#4F94E8] dark:text-[#FFFFFF] font-mono">
               {figures.leastBusyMember ? `${figures.leastBusyMember.hours}h workload` : ''}
             </div>
           </div>
@@ -175,13 +175,13 @@ export const AnalyticsPage: React.FC = () => {
       {/* Main Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Workload Distribution */}
-        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-4 flex flex-col">
-          <h2 className="font-heading font-semibold text-xs text-[#075985] dark:text-[#FFFFFF] uppercase tracking-wide mb-3">
+        <div className="bg-[#FFFFFF] dark:bg-[#1C2638] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 rounded-[6px] p-4 flex flex-col">
+          <h2 className="font-heading font-semibold text-xs text-[#1E2430] dark:text-[#FFFFFF] uppercase tracking-wide mb-3">
             Member Workload Distribution
           </h2>
           <div className="h-64 w-full">
             {workloadDistribution.length === 0 ? (
-              <div className="h-full flex items-center justify-center text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75">
+              <div className="h-full flex items-center justify-center text-xs text-[#6B7280] dark:text-[#FFFFFF]/70">
                 No workload distribution data available.
               </div>
             ) : (
@@ -224,13 +224,13 @@ export const AnalyticsPage: React.FC = () => {
         </div>
 
         {/* Category Breakdown */}
-        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-4 flex flex-col">
-          <h2 className="font-heading font-semibold text-xs text-[#075985] dark:text-[#FFFFFF] uppercase tracking-wide mb-3">
+        <div className="bg-[#FFFFFF] dark:bg-[#1C2638] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 rounded-[6px] p-4 flex flex-col">
+          <h2 className="font-heading font-semibold text-xs text-[#1E2430] dark:text-[#FFFFFF] uppercase tracking-wide mb-3">
             Tasks by Category: Completed vs Active
           </h2>
           <div className="h-64 w-full">
             {categoryBreakdown.length === 0 ? (
-              <div className="h-full flex items-center justify-center text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75">
+              <div className="h-full flex items-center justify-center text-xs text-[#6B7280] dark:text-[#FFFFFF]/70">
                 No category breakdown data available.
               </div>
             ) : (
@@ -281,13 +281,13 @@ export const AnalyticsPage: React.FC = () => {
       </div>
 
       {/* Priority Breakdown Table */}
-      <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-4">
-        <h2 className="font-heading font-semibold text-xs text-[#075985] dark:text-[#FFFFFF] uppercase tracking-wide mb-3">
+      <div className="bg-[#FFFFFF] dark:bg-[#1C2638] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 rounded-[6px] p-4">
+        <h2 className="font-heading font-semibold text-xs text-[#1E2430] dark:text-[#FFFFFF] uppercase tracking-wide mb-3">
           Priority Performance Breakdown
         </h2>
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-[#0EA5E9]/8 dark:bg-[#7DD3FC]/10 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30 font-heading font-medium text-[#075985]/70 dark:text-[#E0F2FE]/75">
+            <thead className="bg-[#4F94E8]/8 dark:bg-[#FFFFFF]/5 border-b border-[#E5E7EB] dark:border-[#FFFFFF]/10 font-heading font-medium text-[#6B7280] dark:text-[#FFFFFF]/70">
               <tr>
                 <th className="py-2.5 px-3">Priority Level</th>
                 <th className="py-2.5 px-3">Total Tasks</th>
@@ -295,16 +295,16 @@ export const AnalyticsPage: React.FC = () => {
                 <th className="py-2.5 px-3">Completion Rate</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#E0F2FE] dark:divide-[#7DD3FC]/30">
+            <tbody className="divide-y divide-[#E5E7EB] dark:divide-[#FFFFFF]/10">
               {priorityBreakdown.map(p => {
                 const rate = p.count > 0 ? Math.round((p.completed / p.count) * 100) : 0;
                 return (
                   <tr key={p.priority}>
-                    <td className="py-2.5 px-3 font-heading font-medium text-[#075985] dark:text-[#FFFFFF]">
+                    <td className="py-2.5 px-3 font-heading font-medium text-[#1E2430] dark:text-[#FFFFFF]">
                       {p.priority}
                     </td>
                     <td className="py-2.5 px-3 font-mono">{p.count}</td>
-                    <td className="py-2.5 px-3 font-mono text-[#0EA5E9] dark:text-[#FFFFFF]">{p.completed}</td>
+                    <td className="py-2.5 px-3 font-mono text-[#4F94E8] dark:text-[#FFFFFF]">{p.completed}</td>
                     <td className="py-2.5 px-3 font-mono font-semibold">{rate}%</td>
                   </tr>
                 );

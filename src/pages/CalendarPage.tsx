@@ -105,31 +105,31 @@ export const CalendarPage: React.FC = () => {
       {/* Header & Controls */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="font-heading font-semibold text-lg text-[#075985] dark:text-[#FFFFFF]">
+          <h1 className="font-heading font-semibold text-lg text-[#1E2430] dark:text-[#FFFFFF]">
             Household Calendar
           </h1>
-          <p className="text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75 font-sans">
+          <p className="text-xs text-[#6B7280] dark:text-[#FFFFFF]/70 font-sans">
             Schedule deadlines, projected recurring tasks, and household utility bills
           </p>
         </div>
 
         {/* Month Navigation */}
         <div className="flex items-center gap-2">
-          <div className="flex items-center rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49] overflow-hidden">
+          <div className="flex items-center rounded-[4px] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 bg-[#FFFFFF] dark:bg-[#1C2638] overflow-hidden">
             <button
               type="button"
               onClick={handlePrevMonth}
-              className="p-1.5 text-[#075985]/70 hover:text-[#075985] dark:text-[#E0F2FE]/75 dark:hover:text-[#FFFFFF]"
+              className="p-1.5 text-[#6B7280] hover:text-[#1E2430] dark:text-[#FFFFFF]/70 dark:hover:text-[#FFFFFF]"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
-            <span className="px-3 py-1 text-xs font-heading font-semibold text-[#075985] dark:text-[#FFFFFF] min-w-[130px] text-center">
+            <span className="px-3 py-1 text-xs font-heading font-semibold text-[#1E2430] dark:text-[#FFFFFF] min-w-[130px] text-center">
               {monthName} {year}
             </span>
             <button
               type="button"
               onClick={handleNextMonth}
-              className="p-1.5 text-[#075985]/70 hover:text-[#075985] dark:text-[#E0F2FE]/75 dark:hover:text-[#FFFFFF]"
+              className="p-1.5 text-[#6B7280] hover:text-[#1E2430] dark:text-[#FFFFFF]/70 dark:hover:text-[#FFFFFF]"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -138,7 +138,7 @@ export const CalendarPage: React.FC = () => {
           <button
             type="button"
             onClick={handleToday}
-            className="px-3 py-1.5 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49] text-xs font-heading font-medium text-[#075985] dark:text-[#FFFFFF] hover:bg-[#0EA5E9]/8 dark:hover:bg-[#7DD3FC]/15"
+            className="px-3 py-1.5 rounded-[4px] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 bg-[#FFFFFF] dark:bg-[#1C2638] text-xs font-heading font-medium text-[#1E2430] dark:text-[#FFFFFF] hover:bg-[#4F94E8]/8 dark:hover:bg-[#FFFFFF]/10"
           >
             Today
           </button>
@@ -146,9 +146,9 @@ export const CalendarPage: React.FC = () => {
       </div>
 
       {/* Calendar Grid */}
-      <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] overflow-hidden shadow-xs">
+      <div className="bg-[#FFFFFF] dark:bg-[#1C2638] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 rounded-[6px] overflow-hidden shadow-xs">
         {/* Days of week */}
-        <div className="grid grid-cols-7 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#0EA5E9]/8 dark:bg-[#7DD3FC]/10 text-center text-xs font-heading font-medium text-[#075985]/70 dark:text-[#E0F2FE]/75 py-2">
+        <div className="grid grid-cols-7 border-b border-[#E5E7EB] dark:border-[#FFFFFF]/10 bg-[#4F94E8]/8 dark:bg-[#FFFFFF]/5 text-center text-xs font-heading font-medium text-[#6B7280] dark:text-[#FFFFFF]/70 py-2">
           <span>Sun</span>
           <span>Mon</span>
           <span>Tue</span>
@@ -159,7 +159,7 @@ export const CalendarPage: React.FC = () => {
         </div>
 
         {/* Days matrix */}
-        <div className="grid grid-cols-7 divide-x divide-y divide-[#E0F2FE] dark:divide-[#7DD3FC]/30">
+        <div className="grid grid-cols-7 divide-x divide-y divide-[#E5E7EB] dark:divide-[#FFFFFF]/10">
           {days.map((d, index) => {
             const dayItems = itemsByDate[d.dateStr] || [];
             const isToday = d.dateStr === todayStr;
@@ -174,10 +174,10 @@ export const CalendarPage: React.FC = () => {
                 }}
                 className={`min-h-[92px] sm:min-h-[110px] p-1.5 sm:p-2 transition-colors flex flex-col justify-between ${
                   !d.isCurrentMonth
-                    ? 'bg-[#F0F9FF] dark:bg-[#7DD3FC]/10 opacity-40'
-                    : 'bg-[#FFFFFF] dark:bg-[#082F49]'
+                    ? 'bg-[#FFFFFF] dark:bg-[#FFFFFF]/5 opacity-40'
+                    : 'bg-[#FFFFFF] dark:bg-[#1C2638]'
                 } ${
-                  dayItems.length > 0 ? 'cursor-pointer hover:bg-[#0EA5E9]/8 dark:hover:bg-[#7DD3FC]/15' : ''
+                  dayItems.length > 0 ? 'cursor-pointer hover:bg-[#4F94E8]/8 dark:hover:bg-[#FFFFFF]/10' : ''
                 }`}
               >
                 {/* Day Header */}
@@ -185,17 +185,17 @@ export const CalendarPage: React.FC = () => {
                   <span
                     className={`font-mono text-xs ${
                       isToday
-                        ? 'w-5 h-5 rounded-full bg-[#0EA5E9] text-[#FFFFFF] flex items-center justify-center font-bold'
+                        ? 'w-5 h-5 rounded-full bg-[#4F94E8] text-[#FFFFFF] flex items-center justify-center font-bold'
                         : d.isCurrentMonth
-                        ? 'font-medium text-[#075985] dark:text-[#FFFFFF]'
-                        : 'text-[#075985]/50 dark:text-[#E0F2FE]/50'
+                        ? 'font-medium text-[#1E2430] dark:text-[#FFFFFF]'
+                        : 'text-[#6B7280] dark:text-[#FFFFFF]/50'
                     }`}
                   >
                     {d.dayNumber}
                   </span>
 
                   {dayItems.length > 0 && (
-                    <span className="text-[10px] font-mono text-[#075985]/70 dark:text-[#E0F2FE]/75">
+                    <span className="text-[10px] font-mono text-[#6B7280] dark:text-[#FFFFFF]/70">
                       {dayItems.length}
                     </span>
                   )}
@@ -213,12 +213,12 @@ export const CalendarPage: React.FC = () => {
                         key={item.id}
                         className={`px-1.5 py-0.5 rounded-[3px] text-[10px] font-heading truncate flex items-center gap-1 ${
                           isBill
-                            ? 'border border-[#0EA5E9] text-[#0EA5E9] dark:text-[#FFFFFF] dark:border-[#7DD3FC]/30 bg-[#0EA5E9]/8'
+                            ? 'border border-[#4F94E8] text-[#4F94E8] dark:text-[#FFFFFF] dark:border-[#FFFFFF]/10 bg-[#4F94E8]/8'
                             : isOverdue
-                            ? 'bg-[#075985] dark:bg-[#082F49] text-[#FFFFFF] dark:text-[#082F49] font-bold'
+                            ? 'bg-[#1E2430] dark:bg-[#1C2638] text-[#FFFFFF] dark:text-[#1E2430] font-bold'
                             : isRecurring
-                            ? 'bg-[#E0F2FE] dark:bg-[#7DD3FC]/15 text-[#075985] dark:text-[#FFFFFF] border border-[#E0F2FE] dark:border-[#7DD3FC]/30'
-                            : 'bg-[#FFFFFF] dark:bg-[#082F49] text-[#075985] dark:text-[#FFFFFF] border border-[#E0F2FE] dark:border-[#7DD3FC]/30'
+                            ? 'bg-[#E5E7EB] dark:bg-[#FFFFFF]/10 text-[#1E2430] dark:text-[#FFFFFF] border border-[#E5E7EB] dark:border-[#FFFFFF]/10'
+                            : 'bg-[#FFFFFF] dark:bg-[#1C2638] text-[#1E2430] dark:text-[#FFFFFF] border border-[#E5E7EB] dark:border-[#FFFFFF]/10'
                         }`}
                       >
                         {isBill ? (
@@ -232,7 +232,7 @@ export const CalendarPage: React.FC = () => {
                   })}
 
                   {dayItems.length > 2 && (
-                    <div className="text-[9px] font-heading text-[#075985]/70 dark:text-[#E0F2FE]/75 pl-1">
+                    <div className="text-[9px] font-heading text-[#6B7280] dark:text-[#FFFFFF]/70 pl-1">
                       +{dayItems.length - 2} more...
                     </div>
                   )}
@@ -246,24 +246,24 @@ export const CalendarPage: React.FC = () => {
       {/* DAY ITEMS DRAWER / MODAL */}
       <AnimatePresence>
         {selectedDayItems && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#082F49]/60">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#141C2B]/60">
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
-              className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] max-w-md w-full p-5 shadow-sm max-h-[85vh] overflow-y-auto"
+              className="bg-[#FFFFFF] dark:bg-[#1C2638] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 rounded-[6px] max-w-md w-full p-5 shadow-sm max-h-[85vh] overflow-y-auto"
             >
-              <div className="flex items-center justify-between pb-3 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
+              <div className="flex items-center justify-between pb-3 border-b border-[#E5E7EB] dark:border-[#FFFFFF]/10">
                 <div className="flex items-center gap-2">
-                  <CalendarIcon className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
-                  <h3 className="font-heading font-semibold text-sm text-[#075985] dark:text-[#FFFFFF]">
+                  <CalendarIcon className="w-4 h-4 text-[#4F94E8] dark:text-[#FFFFFF]" />
+                  <h3 className="font-heading font-semibold text-sm text-[#1E2430] dark:text-[#FFFFFF]">
                     Agenda for {new Date(selectedDayItems.dateStr + 'T12:00:00').toLocaleDateString([], { month: 'long', day: 'numeric', year: 'numeric' })}
                   </h3>
                 </div>
                 <button
                   type="button"
                   onClick={() => setSelectedDayItems(null)}
-                  className="p-1 text-[#075985]/50 hover:text-[#075985] dark:text-[#E0F2FE]/50 dark:hover:text-[#FFFFFF]"
+                  className="p-1 text-[#6B7280] hover:text-[#1E2430] dark:text-[#FFFFFF]/50 dark:hover:text-[#FFFFFF]"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -277,19 +277,19 @@ export const CalendarPage: React.FC = () => {
                   return (
                     <div
                       key={item.id}
-                      className="p-3 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#0EA5E9]/8 dark:bg-[#7DD3FC]/10 text-xs space-y-1"
+                      className="p-3 rounded-[4px] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 bg-[#4F94E8]/8 dark:bg-[#FFFFFF]/5 text-xs space-y-1"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="font-heading font-medium text-[#075985] dark:text-[#FFFFFF]">
+                        <span className="font-heading font-medium text-[#1E2430] dark:text-[#FFFFFF]">
                           {item.title}
                         </span>
                         <span
                           className={`px-1.5 py-0.2 rounded text-[10px] font-heading capitalize ${
                             isBill
-                              ? 'border border-[#0EA5E9] text-[#0EA5E9] dark:text-[#FFFFFF]'
+                              ? 'border border-[#4F94E8] text-[#4F94E8] dark:text-[#FFFFFF]'
                               : isRecurring
-                              ? 'bg-[#E0F2FE] dark:bg-[#7DD3FC]/15 text-[#075985] dark:text-[#FFFFFF]'
-                              : 'bg-[#E0F2FE] dark:bg-[#7DD3FC]/15 text-[#075985] dark:text-[#FFFFFF]'
+                              ? 'bg-[#E5E7EB] dark:bg-[#FFFFFF]/10 text-[#1E2430] dark:text-[#FFFFFF]'
+                              : 'bg-[#E5E7EB] dark:bg-[#FFFFFF]/10 text-[#1E2430] dark:text-[#FFFFFF]'
                           }`}
                         >
                           {isBill ? 'Bill' : isRecurring ? 'Recurring' : item.category || 'Task'}
@@ -297,13 +297,13 @@ export const CalendarPage: React.FC = () => {
                       </div>
 
                       {isBill && item.amount !== null && item.amount !== undefined && (
-                        <div className="text-xs font-mono font-semibold text-[#075985] dark:text-[#FFFFFF]">
+                        <div className="text-xs font-mono font-semibold text-[#1E2430] dark:text-[#FFFFFF]">
                           Amount: ${item.amount.toFixed(2)}
                         </div>
                       )}
 
                       {!isBill && (
-                        <div className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75 flex items-center justify-between pt-1">
+                        <div className="text-[11px] text-[#6B7280] dark:text-[#FFFFFF]/70 flex items-center justify-between pt-1">
                           <span>Assignee: {item.assignedMemberName || 'Unassigned'}</span>
                           <span>Time: {item.time || 'All Day'}</span>
                         </div>
@@ -313,11 +313,11 @@ export const CalendarPage: React.FC = () => {
                 })}
               </div>
 
-              <div className="mt-5 flex justify-end pt-3 border-t border-[#E0F2FE] dark:border-[#7DD3FC]/30">
+              <div className="mt-5 flex justify-end pt-3 border-t border-[#E5E7EB] dark:border-[#FFFFFF]/10">
                 <button
                   type="button"
                   onClick={() => setSelectedDayItems(null)}
-                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:bg-[#0EA5E9]/8 dark:hover:bg-[#7DD3FC]/15"
+                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 text-[#6B7280] dark:text-[#FFFFFF]/70 hover:bg-[#4F94E8]/8 dark:hover:bg-[#FFFFFF]/10"
                 >
                   Close
                 </button>

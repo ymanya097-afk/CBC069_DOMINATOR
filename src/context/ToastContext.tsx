@@ -60,29 +60,28 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
                 transition={{ duration: 0.18 }}
-                className="pointer-events-auto bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-3 shadow-xs text-[#075985] dark:text-[#FFFFFF] flex items-start gap-2.5"
+                className="pointer-events-auto bg-[#FFFFFF] dark:bg-[#1C2638] border border-[#E5E7EB] dark:border-[#FFFFFF]/10 rounded-[6px] p-3 shadow-xs text-[#1E2430] dark:text-[#FFFFFF] flex items-start gap-2.5"
                 style={{
                   borderLeftWidth: '3px',
-                  borderLeftColor: isError ? '#075985' : '#0EA5E9'
-                }}
+                  borderLeftColor: '#4F94E8'}}
               >
                 <div className="mt-0.5 shrink-0">
                   {isSuccess ? (
-                    <CheckCircle2 className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+                    <CheckCircle2 className="w-4 h-4 text-[#4F94E8] dark:text-[#FFFFFF]" />
                   ) : isError ? (
-                    <AlertCircle className="w-4 h-4 text-[#075985] dark:text-[#FFFFFF]" />
+                    <AlertCircle className="w-4 h-4 text-[#1E2430] dark:text-[#FFFFFF]" />
                   ) : (
-                    <Info className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+                    <Info className="w-4 h-4 text-[#4F94E8] dark:text-[#FFFFFF]" />
                   )}
                 </div>
 
                 <div className="flex-1 text-xs">
                   {toast.title && (
-                    <div className="font-heading font-semibold text-[13px] leading-tight mb-0.5 text-[#075985] dark:text-[#FFFFFF]">
+                    <div className="font-heading font-semibold text-[13px] leading-tight mb-0.5 text-[#1E2430] dark:text-[#FFFFFF]">
                       {toast.title}
                     </div>
                   )}
-                  <div className="text-[#075985]/70 dark:text-[#E0F2FE]/75 leading-relaxed">
+                  <div className="text-[#6B7280] dark:text-[#FFFFFF]/70 leading-relaxed">
                     {toast.message}
                   </div>
                 </div>
@@ -90,7 +89,7 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
                 <button
                   type="button"
                   onClick={() => removeToast(toast.id)}
-                  className="text-[#075985]/50 hover:text-[#075985] dark:text-[#E0F2FE]/50 dark:hover:text-[#FFFFFF] p-0.5 rounded transition-colors"
+                  className="text-[#6B7280] hover:text-[#1E2430] dark:text-[#FFFFFF]/50 dark:hover:text-[#FFFFFF] p-0.5 rounded transition-colors"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>

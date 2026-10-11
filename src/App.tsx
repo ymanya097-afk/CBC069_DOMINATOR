@@ -33,12 +33,12 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#FFFFFF] dark:bg-[#082F49] flex items-center justify-center">
+      <div className="min-h-screen bg-[#EAF3FD] dark:bg-[#141C2B] flex items-center justify-center">
         <div className="text-center space-y-2">
-          <div className="w-8 h-8 rounded-[6px] bg-[#0EA5E9] text-[#FFFFFF] font-heading font-bold text-base flex items-center justify-center mx-auto animate-pulse">
+          <div className="w-8 h-8 rounded-[6px] bg-[#4F94E8] text-[#FFFFFF] font-heading font-bold text-base flex items-center justify-center mx-auto animate-pulse">
             H
           </div>
-          <p className="text-xs font-heading text-[#075985]/70 dark:text-[#E0F2FE]/75">
+          <p className="text-xs font-heading text-[#6B7280] dark:text-[#FFFFFF]/70">
             Connecting to House Hub...
           </p>
         </div>
