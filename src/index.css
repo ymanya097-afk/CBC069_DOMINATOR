@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-white: #fffeff;
+  --color-brand-dark: #232b3d;
+  --color-brand-blue: #3a6993;
+}
+
+:root {
+  /* Three canonical colors only */
+  --c-white: #fffeff;
+  --c-dark: #232b3d;
+  --c-blue: #3a6993;
+
+  /* Semantic tokens - Light Mode */
+  --bg-page: var(--c-white);
+  --card-bg: var(--c-white);
+  --card-border: color-mix(in srgb, var(--c-dark) 12%, transparent);
+  --text-primary: var(--c-dark);
+  --text-secondary: color-mix(in srgb, var(--c-dark) 65%, transparent);
+  --text-muted: color-mix(in srgb, var(--c-dark) 45%, transparent);
+  --accent-primary: var(--c-blue);
+  --accent-hover: color-mix(in srgb, var(--c-blue) 8%, transparent);
+  --input-bg: var(--c-white);
+  --input-border: color-mix(in srgb, var(--c-dark) 12%, transparent);
+  --focus-ring: var(--c-blue);
+}
+
+.dark {
+  /* Semantic tokens - Dark Mode */
+  --bg-page: var(--c-dark);
+  --card-bg: var(--c-dark);
+  --card-border: color-mix(in srgb, var(--c-white) 12%, transparent);
+  --text-primary: var(--c-white);
+  --text-secondary: color-mix(in srgb, var(--c-white) 70%, transparent);
+  --text-muted: color-mix(in srgb, var(--c-white) 45%, transparent);
+  --accent-primary: var(--c-blue);
+  --accent-hover: color-mix(in srgb, var(--c-white) 8%, transparent);
+  --input-bg: var(--c-dark);
+  --input-border: color-mix(in srgb, var(--c-white) 12%, transparent);
+  --focus-ring: var(--c-white);
+}
+
+@layer base {
+  * {
+    border-color: var(--card-border);
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: 'Lora', Georgia, serif;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6, button, input, select, textarea, table, nav, .font-heading {
+    font-family: 'Poppins', Arial, sans-serif;
+  }
+
+  ::selection {
+    background-color: #3a6993;
+    color: #fffeff;
+  }
+}
+
+/* Custom scrollbars derived strictly from theme colors */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--c-dark) 20%, transparent);
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--c-white) 20%, transparent);
+}

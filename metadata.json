@@ -1,0 +1,6 @@
+{
+  "name": "Home Sync",
+  "description": "Smart Household Task & Resource Planner",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
