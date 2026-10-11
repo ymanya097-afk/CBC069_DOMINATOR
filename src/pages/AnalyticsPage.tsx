@@ -21,6 +21,7 @@ import {
   Legend
 } from 'recharts';
 import { apiRequest } from '../lib/api.ts';
+import { useChartColors } from '../hooks/useChartColors.ts';
 
 interface AnalyticsData {
   figures: {
@@ -57,6 +58,7 @@ interface AnalyticsData {
 }
 
 export const AnalyticsPage: React.FC = () => {
+  const chartColors = useChartColors();
   const { data, isLoading } = useQuery<AnalyticsData>({
     queryKey: ['analytics'],
     queryFn: () => apiRequest('/api/analytics')
@@ -178,24 +180,46 @@ export const AnalyticsPage: React.FC = () => {
             Member Workload Distribution
           </h2>
           <div className="h-64 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={workloadDistribution} margin={{ top: 10, right: 10, left: -20, bottom: 20 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#232b3d" opacity={0.12} vertical={false} />
-                <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#3a6993' }} angle={-20} textAnchor="end" />
-                <YAxis tick={{ fontSize: 10, fill: '#3a6993' }} unit="h" />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: '#232b3d',
-                    borderColor: '#232b3d',
-                    borderRadius: '4px',
-                    color: '#fffeff',
-                    fontSize: '11px'
-                  }}
-                  formatter={(val: any) => [`${val} hours`, 'Active Workload']}
-                />
-                <Bar dataKey="workloadHours" fill="#3a6993" name="Workload (Hours)" radius={[2, 2, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
+            {workloadDistribution.length === 0 ? (
+              <div className="h-full flex items-center justify-center text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70">
+                No workload distribution data available.
+              </div>
+            ) : (
+              <ResponsiveContainer width="100%" height="100%" key={`analytics-workload-${chartColors.themeKey}`}>
+                <BarChart data={workloadDistribution} margin={{ top: 10, right: 10, left: -20, bottom: 20 }}>
+                  <CartesianGrid strokeDasharray={chartColors.gridDash} stroke={chartColors.gridStroke} vertical={false} />
+                  <XAxis
+                    dataKey="name"
+                    tick={{ fontSize: chartColors.tickFontSize, fill: chartColors.tickFill }}
+                    axisLine={{ stroke: chartColors.axisStroke }}
+                    tickLine={{ stroke: chartColors.axisStroke }}
+                    angle={-20}
+                    textAnchor="end"
+                  />
+                  <YAxis
+                    tick={{ fontSize: chartColors.tickFontSize, fill: chartColors.tickFill }}
+                    axisLine={{ stroke: chartColors.axisStroke }}
+                    tickLine={{ stroke: chartColors.axisStroke }}
+                    unit="h"
+                  />
+                  <Tooltip
+                    contentStyle={chartColors.tooltipStyle}
+                    itemStyle={chartColors.tooltipItemStyle}
+                    labelStyle={chartColors.tooltipLabelStyle}
+                    formatter={(val: any) => [`${val} hours`, 'Active Workload']}
+                  />
+                  <Legend wrapperStyle={chartColors.legendWrapperStyle} />
+                  <Bar
+                    dataKey="workloadHours"
+                    fill={chartColors.series1.fill}
+                    stroke={chartColors.series1.stroke}
+                    strokeWidth={chartColors.series1.strokeWidth}
+                    name="Workload (Hours)"
+                    radius={[2, 2, 0, 0]}
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+            )}
           </div>
         </div>
 
@@ -205,24 +229,53 @@ export const AnalyticsPage: React.FC = () => {
             Tasks by Category: Completed vs Active
           </h2>
           <div className="h-64 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={categoryBreakdown} margin={{ top: 10, right: 10, left: -20, bottom: 20 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#232b3d" opacity={0.12} vertical={false} />
-                <XAxis dataKey="category" tick={{ fontSize: 10, fill: '#3a6993' }} angle={-20} textAnchor="end" />
-                <YAxis tick={{ fontSize: 10, fill: '#3a6993' }} allowDecimals={false} />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: '#232b3d',
-                    borderColor: '#232b3d',
-                    borderRadius: '4px',
-                    color: '#fffeff',
-                    fontSize: '11px'
-                  }}
-                />
-                <Bar dataKey="completed" fill="#3a6993" name="Completed" radius={[2, 2, 0, 0]} />
-                <Bar dataKey="pending" fill="#232b3d" opacity={0.45} name="Pending / Active" radius={[2, 2, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
+            {categoryBreakdown.length === 0 ? (
+              <div className="h-full flex items-center justify-center text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70">
+                No category breakdown data available.
+              </div>
+            ) : (
+              <ResponsiveContainer width="100%" height="100%" key={`analytics-cat-${chartColors.themeKey}`}>
+                <BarChart data={categoryBreakdown} margin={{ top: 10, right: 10, left: -20, bottom: 20 }}>
+                  <CartesianGrid strokeDasharray={chartColors.gridDash} stroke={chartColors.gridStroke} vertical={false} />
+                  <XAxis
+                    dataKey="category"
+                    tick={{ fontSize: chartColors.tickFontSize, fill: chartColors.tickFill }}
+                    axisLine={{ stroke: chartColors.axisStroke }}
+                    tickLine={{ stroke: chartColors.axisStroke }}
+                    angle={-20}
+                    textAnchor="end"
+                  />
+                  <YAxis
+                    tick={{ fontSize: chartColors.tickFontSize, fill: chartColors.tickFill }}
+                    axisLine={{ stroke: chartColors.axisStroke }}
+                    tickLine={{ stroke: chartColors.axisStroke }}
+                    allowDecimals={false}
+                  />
+                  <Tooltip
+                    contentStyle={chartColors.tooltipStyle}
+                    itemStyle={chartColors.tooltipItemStyle}
+                    labelStyle={chartColors.tooltipLabelStyle}
+                  />
+                  <Legend wrapperStyle={chartColors.legendWrapperStyle} />
+                  <Bar
+                    dataKey="completed"
+                    fill={chartColors.series1.fill}
+                    stroke={chartColors.series1.stroke}
+                    strokeWidth={chartColors.series1.strokeWidth}
+                    name="Completed"
+                    radius={[2, 2, 0, 0]}
+                  />
+                  <Bar
+                    dataKey="pending"
+                    fill={chartColors.series2.fill}
+                    stroke={chartColors.series2.stroke}
+                    strokeWidth={chartColors.series2.strokeWidth}
+                    name="Pending / Active"
+                    radius={[2, 2, 0, 0]}
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+            )}
           </div>
         </div>
       </div>

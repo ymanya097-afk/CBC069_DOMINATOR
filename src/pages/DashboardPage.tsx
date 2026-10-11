@@ -30,6 +30,7 @@ import {
 import { apiRequest } from '../lib/api.ts';
 import { useAuth } from '../context/AuthContext.tsx';
 import { useToast } from '../context/ToastContext.tsx';
+import { useChartColors } from '../hooks/useChartColors.ts';
 
 interface DashboardData {
   cards: {
@@ -83,6 +84,7 @@ export const DashboardPage: React.FC = () => {
   const { member } = useAuth();
   const { success, error: toastError, info } = useToast();
   const queryClient = useQueryClient();
+  const chartColors = useChartColors();
 
   const [rejectTask, setRejectTask] = useState<any | null>(null);
   const [rejectReason, setRejectReason] = useState('');
@@ -265,22 +267,45 @@ export const DashboardPage: React.FC = () => {
                 No category tasks recorded yet.
               </div>
             ) : (
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height="100%" key={`dash-chart-1-${chartColors.themeKey}`}>
                 <BarChart data={charts.taskCompletionByCategory} margin={{ top: 10, right: 10, left: -20, bottom: 20 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#232b3d" opacity={0.12} vertical={false} />
-                  <XAxis dataKey="category" tick={{ fontSize: 10, fill: '#3a6993' }} angle={-25} textAnchor="end" />
-                  <YAxis tick={{ fontSize: 10, fill: '#3a6993' }} allowDecimals={false} />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: '#232b3d',
-                      borderColor: '#232b3d',
-                      borderRadius: '4px',
-                      color: '#fffeff',
-                      fontSize: '11px'
-                    }}
+                  <CartesianGrid strokeDasharray={chartColors.gridDash} stroke={chartColors.gridStroke} vertical={false} />
+                  <XAxis
+                    dataKey="category"
+                    tick={{ fontSize: chartColors.tickFontSize, fill: chartColors.tickFill }}
+                    axisLine={{ stroke: chartColors.axisStroke }}
+                    tickLine={{ stroke: chartColors.axisStroke }}
+                    angle={-25}
+                    textAnchor="end"
                   />
-                  <Bar dataKey="completed" fill="#3a6993" name="Completed" radius={[2, 2, 0, 0]} />
-                  <Bar dataKey="pending" fill="#232b3d" opacity={0.45} name="Pending / Active" radius={[2, 2, 0, 0]} />
+                  <YAxis
+                    tick={{ fontSize: chartColors.tickFontSize, fill: chartColors.tickFill }}
+                    axisLine={{ stroke: chartColors.axisStroke }}
+                    tickLine={{ stroke: chartColors.axisStroke }}
+                    allowDecimals={false}
+                  />
+                  <Tooltip
+                    contentStyle={chartColors.tooltipStyle}
+                    itemStyle={chartColors.tooltipItemStyle}
+                    labelStyle={chartColors.tooltipLabelStyle}
+                  />
+                  <Legend wrapperStyle={chartColors.legendWrapperStyle} />
+                  <Bar
+                    dataKey="completed"
+                    fill={chartColors.series1.fill}
+                    stroke={chartColors.series1.stroke}
+                    strokeWidth={chartColors.series1.strokeWidth}
+                    name="Completed"
+                    radius={[2, 2, 0, 0]}
+                  />
+                  <Bar
+                    dataKey="pending"
+                    fill={chartColors.series2.fill}
+                    stroke={chartColors.series2.stroke}
+                    strokeWidth={chartColors.series2.strokeWidth}
+                    name="Pending / Active"
+                    radius={[2, 2, 0, 0]}
+                  />
                 </BarChart>
               </ResponsiveContainer>
             )}
@@ -300,22 +325,38 @@ export const DashboardPage: React.FC = () => {
                 No workload distribution data available.
               </div>
             ) : (
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height="100%" key={`dash-chart-2-${chartColors.themeKey}`}>
                 <BarChart data={charts.workloadDistribution} margin={{ top: 10, right: 10, left: -20, bottom: 20 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#232b3d" opacity={0.12} vertical={false} />
-                  <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#3a6993' }} angle={-20} textAnchor="end" />
-                  <YAxis tick={{ fontSize: 10, fill: '#3a6993' }} unit="h" />
+                  <CartesianGrid strokeDasharray={chartColors.gridDash} stroke={chartColors.gridStroke} vertical={false} />
+                  <XAxis
+                    dataKey="name"
+                    tick={{ fontSize: chartColors.tickFontSize, fill: chartColors.tickFill }}
+                    axisLine={{ stroke: chartColors.axisStroke }}
+                    tickLine={{ stroke: chartColors.axisStroke }}
+                    angle={-20}
+                    textAnchor="end"
+                  />
+                  <YAxis
+                    tick={{ fontSize: chartColors.tickFontSize, fill: chartColors.tickFill }}
+                    axisLine={{ stroke: chartColors.axisStroke }}
+                    tickLine={{ stroke: chartColors.axisStroke }}
+                    unit="h"
+                  />
                   <Tooltip
-                    contentStyle={{
-                      backgroundColor: '#232b3d',
-                      borderColor: '#232b3d',
-                      borderRadius: '4px',
-                      color: '#fffeff',
-                      fontSize: '11px'
-                    }}
+                    contentStyle={chartColors.tooltipStyle}
+                    itemStyle={chartColors.tooltipItemStyle}
+                    labelStyle={chartColors.tooltipLabelStyle}
                     formatter={(val: any) => [`${val} hours`, 'Assigned Workload']}
                   />
-                  <Bar dataKey="effortHours" fill="#3a6993" name="Assigned Hours" radius={[2, 2, 0, 0]} />
+                  <Legend wrapperStyle={chartColors.legendWrapperStyle} />
+                  <Bar
+                    dataKey="effortHours"
+                    fill={chartColors.series1.fill}
+                    stroke={chartColors.series1.stroke}
+                    strokeWidth={chartColors.series1.strokeWidth}
+                    name="Assigned Hours"
+                    radius={[2, 2, 0, 0]}
+                  />
                 </BarChart>
               </ResponsiveContainer>
             )}
@@ -330,24 +371,54 @@ export const DashboardPage: React.FC = () => {
             </h2>
           </div>
           <div className="h-56 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={charts.weeklyPerformance} margin={{ top: 10, right: 10, left: -20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#232b3d" opacity={0.12} vertical={false} />
-                <XAxis dataKey="day" tick={{ fontSize: 10, fill: '#3a6993' }} />
-                <YAxis tick={{ fontSize: 10, fill: '#3a6993' }} allowDecimals={false} />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: '#232b3d',
-                    borderColor: '#232b3d',
-                    borderRadius: '4px',
-                    color: '#fffeff',
-                    fontSize: '11px'
-                  }}
-                />
-                <Line type="monotone" dataKey="completed" stroke="#3a6993" strokeWidth={2} dot={{ r: 3 }} name="Completed" />
-                <Line type="monotone" dataKey="created" stroke="#232b3d" strokeWidth={1.5} strokeDasharray="3 3" dot={{ r: 2 }} name="New Tasks" />
-              </LineChart>
-            </ResponsiveContainer>
+            {(!charts.weeklyPerformance || charts.weeklyPerformance.length === 0) ? (
+              <div className="h-full flex items-center justify-center text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70">
+                No weekly performance data recorded yet.
+              </div>
+            ) : (
+              <ResponsiveContainer width="100%" height="100%" key={`dash-chart-3-${chartColors.themeKey}`}>
+                <LineChart data={charts.weeklyPerformance} margin={{ top: 10, right: 10, left: -20, bottom: 5 }}>
+                  <CartesianGrid strokeDasharray={chartColors.gridDash} stroke={chartColors.gridStroke} vertical={false} />
+                  <XAxis
+                    dataKey="day"
+                    tick={{ fontSize: chartColors.tickFontSize, fill: chartColors.tickFill }}
+                    axisLine={{ stroke: chartColors.axisStroke }}
+                    tickLine={{ stroke: chartColors.axisStroke }}
+                  />
+                  <YAxis
+                    tick={{ fontSize: chartColors.tickFontSize, fill: chartColors.tickFill }}
+                    axisLine={{ stroke: chartColors.axisStroke }}
+                    tickLine={{ stroke: chartColors.axisStroke }}
+                    allowDecimals={false}
+                  />
+                  <Tooltip
+                    contentStyle={chartColors.tooltipStyle}
+                    itemStyle={chartColors.tooltipItemStyle}
+                    labelStyle={chartColors.tooltipLabelStyle}
+                  />
+                  <Legend wrapperStyle={chartColors.legendWrapperStyle} />
+                  <Line
+                    type="monotone"
+                    dataKey="completed"
+                    stroke={chartColors.line1.stroke}
+                    strokeWidth={chartColors.line1.strokeWidth}
+                    dot={chartColors.line1.dot}
+                    activeDot={{ r: 5, fill: chartColors.line1.stroke }}
+                    name="Completed"
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="created"
+                    stroke={chartColors.line2.stroke}
+                    strokeWidth={chartColors.line2.strokeWidth}
+                    strokeDasharray={chartColors.line2.strokeDasharray}
+                    dot={chartColors.line2.dot}
+                    activeDot={{ r: 5, fill: chartColors.line2.stroke }}
+                    name="New Tasks"
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            )}
           </div>
         </div>
       </div>
