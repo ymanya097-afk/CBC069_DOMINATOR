@@ -24,30 +24,30 @@ SUPABASE_ANON_KEY="your-anon-public-key"`;
   };
 
   return (
-    <div className="min-h-screen bg-[#fffeff] dark:bg-[#232b3d] flex items-center justify-center p-4">
-      <div className="max-w-xl w-full bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-8 shadow-sm">
+    <div className="min-h-screen bg-[#FFFFFF] dark:bg-[#082F49] flex items-center justify-center p-4">
+      <div className="max-w-xl w-full bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-8 shadow-sm">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 rounded-[6px] bg-[#3a6993]/8 flex items-center justify-center text-[#3a6993] dark:text-[#fffeff]">
+          <div className="w-10 h-10 rounded-[6px] bg-[#0EA5E9]/8 flex items-center justify-center text-[#0EA5E9] dark:text-[#FFFFFF]">
             <Database className="w-5 h-5" />
           </div>
           <div>
-            <h1 className="font-heading font-semibold text-lg text-[#232b3d] dark:text-[#fffeff]">
+            <h1 className="font-heading font-semibold text-lg text-[#075985] dark:text-[#FFFFFF]">
               House Hub &bull; Supabase Setup Required
             </h1>
-            <p className="text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70">
+            <p className="text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75">
               Connect your Supabase project to activate PostgreSQL and Supabase Auth
             </p>
           </div>
         </div>
 
-        <div className="p-4 rounded-[6px] bg-[#232b3d]/10 dark:bg-[#fffeff]/10 border border-[#232b3d]/12 dark:border-[#fffeff]/12 mb-6">
+        <div className="p-4 rounded-[6px] bg-[#E0F2FE] dark:bg-[#7DD3FC]/15 border border-[#E0F2FE] dark:border-[#7DD3FC]/30 mb-6">
           <div className="flex items-start gap-2.5">
-            <ShieldAlert className="w-4 h-4 text-[#232b3d] dark:text-[#fffeff] shrink-0 mt-0.5" />
+            <ShieldAlert className="w-4 h-4 text-[#075985] dark:text-[#FFFFFF] shrink-0 mt-0.5" />
             <div>
-              <p className="text-xs font-medium text-[#232b3d] dark:text-[#fffeff]">Missing Environment Variables</p>
-              <ul className="mt-1 list-disc list-inside text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70 space-y-0.5">
+              <p className="text-xs font-medium text-[#075985] dark:text-[#FFFFFF]">Missing Environment Variables</p>
+              <ul className="mt-1 list-disc list-inside text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75 space-y-0.5">
                 {missing.map(m => (
-                  <li key={m} className="font-mono text-[11px] font-semibold text-[#232b3d] dark:text-[#fffeff]">
+                  <li key={m} className="font-mono text-[11px] font-semibold text-[#075985] dark:text-[#FFFFFF]">
                     {m}
                   </li>
                 ))}
@@ -56,8 +56,8 @@ SUPABASE_ANON_KEY="your-anon-public-key"`;
           </div>
         </div>
 
-        <div className="space-y-4 text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70">
-          <p className="font-medium text-[#232b3d] dark:text-[#fffeff]">
+        <div className="space-y-4 text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75">
+          <p className="font-medium text-[#075985] dark:text-[#FFFFFF]">
             How to configure:
           </p>
           <ol className="list-decimal list-inside space-y-1.5 pl-1">
@@ -68,11 +68,11 @@ SUPABASE_ANON_KEY="your-anon-public-key"`;
               Add the two Supabase variables:
               <div className="mt-2 ml-4 space-y-1 font-mono text-[11px]">
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold text-[#232b3d] dark:text-[#fffeff]">VITE_SUPABASE_URL</span>
+                  <span className="font-semibold text-[#075985] dark:text-[#FFFFFF]">VITE_SUPABASE_URL</span>
                   <span>(and SUPABASE_URL for server)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold text-[#232b3d] dark:text-[#fffeff]">VITE_SUPABASE_ANON_KEY</span>
+                  <span className="font-semibold text-[#075985] dark:text-[#FFFFFF]">VITE_SUPABASE_ANON_KEY</span>
                   <span>(and SUPABASE_ANON_KEY for server)</span>
                 </div>
               </div>
@@ -82,15 +82,15 @@ SUPABASE_ANON_KEY="your-anon-public-key"`;
           </ol>
 
           <div className="relative mt-4">
-            <pre className="p-3 bg-[#3a6993]/8 dark:bg-[#fffeff]/5 border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] font-mono text-[11px] text-[#232b3d] dark:text-[#fffeff] overflow-x-auto">
+            <pre className="p-3 bg-[#0EA5E9]/8 dark:bg-[#7DD3FC]/10 border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] font-mono text-[11px] text-[#075985] dark:text-[#FFFFFF] overflow-x-auto">
               {snippet}
             </pre>
             <button
               onClick={copySnippet}
-              className="absolute top-2 right-2 p-1.5 rounded-[4px] bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:text-[#232b3d] dark:hover:text-[#fffeff] transition"
+              className="absolute top-2 right-2 p-1.5 rounded-[4px] bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:text-[#075985] dark:hover:text-[#FFFFFF] transition"
               title="Copy snippet"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-[#3a6993] dark:text-[#fffeff]" /> : <Copy className="w-3.5 h-3.5" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-[#0EA5E9] dark:text-[#FFFFFF]" /> : <Copy className="w-3.5 h-3.5" />}
             </button>
           </div>
         </div>

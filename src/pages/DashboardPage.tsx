@@ -130,13 +130,13 @@ export const DashboardPage: React.FC = () => {
           {[...Array(5)].map((_, i) => (
             <div
               key={i}
-              className="h-24 bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] animate-pulse"
+              className="h-24 bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] animate-pulse"
             />
           ))}
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div className="h-64 bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] animate-pulse" />
-          <div className="h-64 bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] animate-pulse" />
+          <div className="h-64 bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] animate-pulse" />
+          <div className="h-64 bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] animate-pulse" />
         </div>
       </div>
     );
@@ -144,8 +144,8 @@ export const DashboardPage: React.FC = () => {
 
   if (error || !data) {
     return (
-      <div className="p-6 bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] text-center">
-        <p className="text-xs text-[#232b3d] dark:text-[#fffeff] font-medium">Failed to load dashboard metrics.</p>
+      <div className="p-6 bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] text-center">
+        <p className="text-xs text-[#075985] dark:text-[#FFFFFF] font-medium">Failed to load dashboard metrics.</p>
       </div>
     );
   }
@@ -165,18 +165,18 @@ export const DashboardPage: React.FC = () => {
       {/* Metric Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
         {/* Total Members */}
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-3.5 flex flex-col justify-between">
-          <div className="flex items-center justify-between text-[#232b3d]/65 dark:text-[#fffeff]/70">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-3.5 flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#075985]/70 dark:text-[#E0F2FE]/75">
             <span className="text-[11px] font-heading font-medium tracking-wide">Total Members</span>
-            <Users className="w-4 h-4 text-[#3a6993] dark:text-[#fffeff]" />
+            <Users className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
           </div>
           <div className="mt-2 flex items-baseline justify-between">
-            <span className="text-2xl font-heading font-semibold text-[#232b3d] dark:text-[#fffeff]">
+            <span className="text-2xl font-heading font-semibold text-[#075985] dark:text-[#FFFFFF]">
               {cards.totalMembers}
             </span>
             <Link
               to="/members"
-              className="text-[11px] text-[#3a6993] dark:text-[#fffeff] hover:underline font-heading flex items-center gap-0.5"
+              className="text-[11px] text-[#0EA5E9] dark:text-[#FFFFFF] hover:underline font-heading flex items-center gap-0.5"
             >
               View
             </Link>
@@ -184,18 +184,18 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         {/* Pending Tasks */}
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-3.5 flex flex-col justify-between">
-          <div className="flex items-center justify-between text-[#232b3d]/65 dark:text-[#fffeff]/70">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-3.5 flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#075985]/70 dark:text-[#E0F2FE]/75">
             <span className="text-[11px] font-heading font-medium tracking-wide">Pending Tasks</span>
-            <Clock className="w-4 h-4 text-[#232b3d]/65 dark:text-[#fffeff]/70" />
+            <Clock className="w-4 h-4 text-[#075985]/70 dark:text-[#E0F2FE]/75" />
           </div>
           <div className="mt-2 flex items-baseline justify-between">
-            <span className="text-2xl font-heading font-semibold text-[#232b3d] dark:text-[#fffeff]">
+            <span className="text-2xl font-heading font-semibold text-[#075985] dark:text-[#FFFFFF]">
               {cards.pendingTasks}
             </span>
             <Link
               to="/tasks?status=Pending"
-              className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:underline font-heading"
+              className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:underline font-heading"
             >
               Queue
             </Link>
@@ -203,34 +203,34 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         {/* Completed Tasks */}
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-3.5 flex flex-col justify-between">
-          <div className="flex items-center justify-between text-[#232b3d]/65 dark:text-[#fffeff]/70">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-3.5 flex flex-col justify-between">
+          <div className="flex items-center justify-between text-[#075985]/70 dark:text-[#E0F2FE]/75">
             <span className="text-[11px] font-heading font-medium tracking-wide">Completed</span>
-            <CheckCircle2 className="w-4 h-4 text-[#3a6993] dark:text-[#fffeff]" />
+            <CheckCircle2 className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
           </div>
           <div className="mt-2 flex items-baseline justify-between">
-            <span className="text-2xl font-heading font-semibold text-[#3a6993] dark:text-[#fffeff]">
+            <span className="text-2xl font-heading font-semibold text-[#0EA5E9] dark:text-[#FFFFFF]">
               {cards.completedTasks}
             </span>
-            <span className="text-[10px] text-[#3a6993] dark:text-[#fffeff] font-heading font-medium">Done</span>
+            <span className="text-[10px] text-[#0EA5E9] dark:text-[#FFFFFF] font-heading font-medium">Done</span>
           </div>
         </div>
 
         {/* Overdue Tasks */}
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-3.5 flex flex-col justify-between border-l-3 border-l-[#232b3d] dark:border-l-[#fffeff]">
-          <div className="flex items-center justify-between text-[#232b3d] dark:text-[#fffeff]">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-3.5 flex flex-col justify-between border-l-3 border-l-[#0EA5E9] dark:border-l-[#0EA5E9]">
+          <div className="flex items-center justify-between text-[#075985] dark:text-[#FFFFFF]">
             <span className="text-[11px] font-heading font-bold uppercase tracking-wider">
               Overdue
             </span>
-            <AlertCircle className="w-4 h-4 text-[#232b3d] dark:text-[#fffeff]" />
+            <AlertCircle className="w-4 h-4 text-[#075985] dark:text-[#FFFFFF]" />
           </div>
           <div className="mt-2 flex items-baseline justify-between">
-            <span className="text-2xl font-heading font-bold text-[#232b3d] dark:text-[#fffeff]">
+            <span className="text-2xl font-heading font-bold text-[#075985] dark:text-[#FFFFFF]">
               {cards.overdueTasks}
             </span>
             <Link
               to="/tasks?status=Overdue"
-              className="text-[11px] font-heading font-semibold text-[#232b3d] dark:text-[#fffeff] hover:underline"
+              className="text-[11px] font-heading font-semibold text-[#075985] dark:text-[#FFFFFF] hover:underline"
             >
               Action
             </Link>
@@ -238,16 +238,16 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         {/* Today's Tasks */}
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-3.5 flex flex-col justify-between col-span-2 sm:col-span-1">
-          <div className="flex items-center justify-between text-[#232b3d]/65 dark:text-[#fffeff]/70">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-3.5 flex flex-col justify-between col-span-2 sm:col-span-1">
+          <div className="flex items-center justify-between text-[#075985]/70 dark:text-[#E0F2FE]/75">
             <span className="text-[11px] font-heading font-medium tracking-wide">Today&apos;s Tasks</span>
-            <Calendar className="w-4 h-4 text-[#3a6993] dark:text-[#fffeff]" />
+            <Calendar className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
           </div>
           <div className="mt-2 flex items-baseline justify-between">
-            <span className="text-2xl font-heading font-semibold text-[#232b3d] dark:text-[#fffeff]">
+            <span className="text-2xl font-heading font-semibold text-[#075985] dark:text-[#FFFFFF]">
               {cards.todaysTasks}
             </span>
-            <span className="text-[10px] text-[#3a6993] dark:text-[#fffeff] font-heading">Scheduled</span>
+            <span className="text-[10px] text-[#0EA5E9] dark:text-[#FFFFFF] font-heading">Scheduled</span>
           </div>
         </div>
       </div>
@@ -255,15 +255,15 @@ export const DashboardPage: React.FC = () => {
       {/* Main Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Chart 1: Task Completion by Category */}
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-4 flex flex-col">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-4 flex flex-col">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="font-heading font-semibold text-xs text-[#232b3d] dark:text-[#fffeff] tracking-wide uppercase">
+            <h2 className="font-heading font-semibold text-xs text-[#075985] dark:text-[#FFFFFF] tracking-wide uppercase">
               Task Completion by Category
             </h2>
           </div>
           <div className="h-56 w-full">
             {charts.taskCompletionByCategory.length === 0 ? (
-              <div className="h-full flex items-center justify-center text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70">
+              <div className="h-full flex items-center justify-center text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75">
                 No category tasks recorded yet.
               </div>
             ) : (
@@ -313,15 +313,15 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         {/* Chart 2: Workload Distribution */}
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-4 flex flex-col">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-4 flex flex-col">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="font-heading font-semibold text-xs text-[#232b3d] dark:text-[#fffeff] tracking-wide uppercase">
+            <h2 className="font-heading font-semibold text-xs text-[#075985] dark:text-[#FFFFFF] tracking-wide uppercase">
               Workload Distribution
             </h2>
           </div>
           <div className="h-56 w-full">
             {charts.workloadDistribution.length === 0 ? (
-              <div className="h-full flex items-center justify-center text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70">
+              <div className="h-full flex items-center justify-center text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75">
                 No workload distribution data available.
               </div>
             ) : (
@@ -364,15 +364,15 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         {/* Chart 3: Weekly Performance */}
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-4 flex flex-col">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-4 flex flex-col">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="font-heading font-semibold text-xs text-[#232b3d] dark:text-[#fffeff] tracking-wide uppercase">
+            <h2 className="font-heading font-semibold text-xs text-[#075985] dark:text-[#FFFFFF] tracking-wide uppercase">
               Weekly Performance (7 Days)
             </h2>
           </div>
           <div className="h-56 w-full">
             {(!charts.weeklyPerformance || charts.weeklyPerformance.length === 0) ? (
-              <div className="h-full flex items-center justify-center text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70">
+              <div className="h-full flex items-center justify-center text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75">
                 No weekly performance data recorded yet.
               </div>
             ) : (
@@ -426,17 +426,17 @@ export const DashboardPage: React.FC = () => {
       {/* Two Column Section: Upcoming Deadlines & Live Activity Feed */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Upcoming Deadlines */}
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-4 flex flex-col">
-          <div className="flex items-center justify-between mb-3 pb-2 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-4 flex flex-col">
+          <div className="flex items-center justify-between mb-3 pb-2 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-[#3a6993] dark:text-[#fffeff]" />
-              <h2 className="font-heading font-semibold text-xs text-[#232b3d] dark:text-[#fffeff] tracking-wide uppercase">
+              <Calendar className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+              <h2 className="font-heading font-semibold text-xs text-[#075985] dark:text-[#FFFFFF] tracking-wide uppercase">
                 Upcoming Deadlines
               </h2>
             </div>
             <Link
               to="/tasks"
-              className="text-[11px] font-heading font-medium text-[#3a6993] dark:text-[#fffeff] hover:underline flex items-center gap-1"
+              className="text-[11px] font-heading font-medium text-[#0EA5E9] dark:text-[#FFFFFF] hover:underline flex items-center gap-1"
             >
               All Tasks <ArrowRight className="w-3 h-3" />
             </Link>
@@ -444,7 +444,7 @@ export const DashboardPage: React.FC = () => {
 
           <div className="flex-1 space-y-2 overflow-y-auto">
             {upcomingDeadlines.length === 0 ? (
-              <p className="text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70 py-6 text-center">
+              <p className="text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75 py-6 text-center">
                 No active task deadlines in the pipeline.
               </p>
             ) : (
@@ -459,28 +459,28 @@ export const DashboardPage: React.FC = () => {
                 return (
                   <div
                     key={task.id}
-                    className="p-3 rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#3a6993]/8 dark:bg-[#fffeff]/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs"
+                    className="p-3 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#0EA5E9]/8 dark:bg-[#7DD3FC]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs"
                   >
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2 mb-0.5">
-                        <span className="font-heading font-medium truncate text-[#232b3d] dark:text-[#fffeff]">
+                        <span className="font-heading font-medium truncate text-[#075985] dark:text-[#FFFFFF]">
                           {task.title}
                         </span>
                         {task.priority === 'Critical' && (
-                          <span className="px-1.5 py-0.2 rounded-[3px] text-[10px] font-heading font-bold bg-[#232b3d] text-[#fffeff] dark:bg-[#fffeff] dark:text-[#232b3d]">
+                          <span className="px-1.5 py-0.2 rounded-[3px] text-[10px] font-heading font-bold bg-[#075985] text-[#FFFFFF] dark:bg-[#082F49] dark:text-[#082F49]">
                             Critical
                           </span>
                         )}
                         <span className={`px-1.5 py-0.2 rounded-[3px] text-[10px] font-heading ${
-                          task.status === 'Completed' ? 'bg-[#3a6993] text-[#fffeff]' :
-                          task.status === 'Accepted' || task.status === 'In Progress' ? 'border border-[#3a6993] text-[#3a6993] dark:text-[#fffeff] dark:border-[#fffeff]/40' :
-                          task.status === 'Overdue' ? 'bg-[#232b3d] text-[#fffeff] font-bold dark:bg-[#fffeff] dark:text-[#232b3d]' :
-                          'bg-[#232b3d]/10 dark:bg-[#fffeff]/10 text-[#232b3d] dark:text-[#fffeff]'
+                          task.status === 'Completed' ? 'bg-[#0EA5E9] text-[#FFFFFF]' :
+                          task.status === 'Accepted' || task.status === 'In Progress' ? 'border border-[#0EA5E9] text-[#0EA5E9] dark:text-[#FFFFFF] dark:border-[#7DD3FC]/30' :
+                          task.status === 'Overdue' ? 'bg-[#075985] text-[#FFFFFF] font-bold dark:bg-[#082F49] dark:text-[#082F49]' :
+                          'bg-[#E0F2FE] dark:bg-[#7DD3FC]/15 text-[#075985] dark:text-[#FFFFFF]'
                         }`}>
                           {task.status}
                         </span>
                       </div>
-                      <div className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70 flex items-center gap-2">
+                      <div className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75 flex items-center gap-2">
                         <span>{task.category}</span>
                         <span>•</span>
                         <span>Assignee: {task.assignedMemberName}</span>
@@ -495,7 +495,7 @@ export const DashboardPage: React.FC = () => {
                             onClick={() => acceptMutation.mutate(task.id)}
                             disabled={acceptMutation.isPending}
                             title="Accept Task"
-                            className="px-2.5 py-1 rounded-[4px] bg-[#3a6993] hover:bg-[#3a6993]/90 text-[#fffeff] text-[10px] font-heading font-medium transition-colors flex items-center gap-1 shadow-xs"
+                            className="px-2.5 py-1 rounded-[4px] bg-[#0EA5E9] hover:bg-[#0284C7] text-[#FFFFFF] text-[10px] font-heading font-medium transition-colors flex items-center gap-1 shadow-xs"
                           >
                             <Check className="w-3 h-3" /> Accept
                           </button>
@@ -506,7 +506,7 @@ export const DashboardPage: React.FC = () => {
                               setRejectReason('');
                             }}
                             title="Reject Task"
-                            className="px-2.5 py-1 rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d] dark:text-[#fffeff] hover:bg-[#3a6993]/8 dark:hover:bg-[#fffeff]/8 text-[10px] font-heading font-medium transition-colors flex items-center gap-1 shadow-xs"
+                            className="px-2.5 py-1 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985] dark:text-[#FFFFFF] hover:bg-[#0EA5E9]/8 dark:hover:bg-[#7DD3FC]/15 text-[10px] font-heading font-medium transition-colors flex items-center gap-1 shadow-xs"
                           >
                             <X className="w-3 h-3" /> Reject
                           </button>
@@ -514,10 +514,10 @@ export const DashboardPage: React.FC = () => {
                       )}
 
                       <div className="text-right">
-                        <div className={`font-mono text-[11px] font-medium ${isOverdue ? 'text-[#232b3d] dark:text-[#fffeff] font-bold' : 'text-[#232b3d] dark:text-[#fffeff]'}`}>
+                        <div className={`font-mono text-[11px] font-medium ${isOverdue ? 'text-[#075985] dark:text-[#FFFFFF] font-bold' : 'text-[#075985] dark:text-[#FFFFFF]'}`}>
                           {dateStr}
                         </div>
-                        <div className="text-[10px] text-[#232b3d]/65 dark:text-[#fffeff]/70">
+                        <div className="text-[10px] text-[#075985]/70 dark:text-[#E0F2FE]/75">
                           {timeStr}
                         </div>
                       </div>
@@ -530,42 +530,42 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         {/* Live Activity Feed */}
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-4 flex flex-col">
-          <div className="flex items-center justify-between mb-3 pb-2 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-4 flex flex-col">
+          <div className="flex items-center justify-between mb-3 pb-2 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
             <div className="flex items-center gap-2">
-              <Activity className="w-4 h-4 text-[#3a6993] dark:text-[#fffeff]" />
-              <h2 className="font-heading font-semibold text-xs text-[#232b3d] dark:text-[#fffeff] tracking-wide uppercase">
+              <Activity className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+              <h2 className="font-heading font-semibold text-xs text-[#075985] dark:text-[#FFFFFF] tracking-wide uppercase">
                 Live Activity Feed
               </h2>
             </div>
-            <span className="inline-flex items-center gap-1.5 text-[10px] font-mono text-[#3a6993] dark:text-[#fffeff]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#3a6993] dark:bg-[#fffeff] animate-pulse" />
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-mono text-[#0EA5E9] dark:text-[#FFFFFF]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0EA5E9] dark:bg-[#082F49] animate-pulse" />
               Live Realtime
             </span>
           </div>
 
           <div className="flex-1 space-y-2.5 max-h-80 overflow-y-auto pr-1">
             {activityFeed.length === 0 ? (
-              <p className="text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70 py-6 text-center">
+              <p className="text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75 py-6 text-center">
                 No activity recorded yet.
               </p>
             ) : (
               activityFeed.map(log => (
                 <div
                   key={log.id}
-                  className="flex items-start gap-2.5 text-xs pb-2 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12 last:border-0 last:pb-0"
+                  className="flex items-start gap-2.5 text-xs pb-2 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30 last:border-0 last:pb-0"
                 >
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#3a6993] mt-1.5 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#0EA5E9] mt-1.5 shrink-0" />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <span className="font-heading font-medium text-[#232b3d] dark:text-[#fffeff] truncate">
+                      <span className="font-heading font-medium text-[#075985] dark:text-[#FFFFFF] truncate">
                         {log.actor_name}
                       </span>
-                      <span className="text-[10px] font-mono text-[#232b3d]/45 dark:text-[#fffeff]/45 shrink-0">
+                      <span className="text-[10px] font-mono text-[#075985]/50 dark:text-[#E0F2FE]/50 shrink-0">
                         {formatTimeAgo(log.created_at)}
                       </span>
                     </div>
-                    <div className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70 mt-0.5 leading-snug">
+                    <div className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75 mt-0.5 leading-snug">
                       {log.details}
                     </div>
                   </div>
@@ -579,27 +579,27 @@ export const DashboardPage: React.FC = () => {
       {/* REJECT TASK MODAL */}
       <AnimatePresence>
         {rejectTask && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#232b3d]/60">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#082F49]/60">
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
-              className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] max-w-sm w-full p-5 shadow-sm"
+              className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] max-w-sm w-full p-5 shadow-sm"
             >
-              <div className="flex items-center justify-between pb-2 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12">
-                <h3 className="font-heading font-semibold text-sm text-[#232b3d] dark:text-[#fffeff]">
+              <div className="flex items-center justify-between pb-2 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
+                <h3 className="font-heading font-semibold text-sm text-[#075985] dark:text-[#FFFFFF]">
                   Reject Task: {rejectTask.title}
                 </h3>
                 <button
                   type="button"
                   onClick={() => setRejectTask(null)}
-                  className="p-1 text-[#232b3d]/45 hover:text-[#232b3d] dark:text-[#fffeff]/45 dark:hover:text-[#fffeff]"
+                  className="p-1 text-[#075985]/50 hover:text-[#075985] dark:text-[#E0F2FE]/50 dark:hover:text-[#FFFFFF]"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </div>
 
-              <p className="text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70 mt-2 mb-3 leading-relaxed">
+              <p className="text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75 mt-2 mb-3 leading-relaxed">
                 Provide a reason for declining &ldquo;{rejectTask.title}&rdquo;. The smart engine will immediately offer this task to the next best available member.
               </p>
 
@@ -612,7 +612,7 @@ export const DashboardPage: React.FC = () => {
                 className="space-y-3"
               >
                 <div>
-                  <label className="block text-xs font-heading font-medium text-[#232b3d] dark:text-[#fffeff] mb-1">
+                  <label className="block text-xs font-heading font-medium text-[#075985] dark:text-[#FFFFFF] mb-1">
                     Rejection Reason (Min 5 chars)
                   </label>
                   <textarea
@@ -622,27 +622,27 @@ export const DashboardPage: React.FC = () => {
                     value={rejectReason}
                     onChange={e => setRejectReason(e.target.value)}
                     placeholder="e.g. Schedule conflict with study group on Saturday afternoon"
-                    className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d] text-[#232b3d] dark:text-[#fffeff] focus:outline-none focus:border-[#3a6993]"
+                    className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49] text-[#075985] dark:text-[#FFFFFF] focus:outline-none focus:border-[#0EA5E9]"
                   />
                   {rejectReason.trim().length > 0 && rejectReason.trim().length < 5 && (
-                    <span className="text-[10px] text-[#232b3d] dark:text-[#fffeff] mt-1 block">
+                    <span className="text-[10px] text-[#075985] dark:text-[#FFFFFF] mt-1 block">
                       Must be at least 5 characters long
                     </span>
                   )}
                 </div>
 
-                <div className="flex items-center justify-end gap-2 pt-2 border-t border-[#232b3d]/12 dark:border-[#fffeff]/12">
+                <div className="flex items-center justify-end gap-2 pt-2 border-t border-[#E0F2FE] dark:border-[#7DD3FC]/30">
                   <button
                     type="button"
                     onClick={() => setRejectTask(null)}
-                    className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:bg-[#3a6993]/8 dark:hover:bg-[#fffeff]/8"
+                    className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:bg-[#0EA5E9]/8 dark:hover:bg-[#7DD3FC]/15"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={rejectMutation.isPending || rejectReason.trim().length < 5}
-                    className="px-3 py-1.5 text-xs font-heading font-medium rounded-[4px] bg-[#3a6993] text-[#fffeff] hover:bg-[#3a6993]/90 disabled:opacity-50"
+                    className="px-3 py-1.5 text-xs font-heading font-medium rounded-[4px] bg-[#0EA5E9] text-[#FFFFFF] hover:bg-[#0284C7] disabled:opacity-50"
                   >
                     {rejectMutation.isPending ? 'Reassigning...' : 'Decline & Re-assign'}
                   </button>

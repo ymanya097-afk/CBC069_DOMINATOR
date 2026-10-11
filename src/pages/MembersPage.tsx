@@ -197,10 +197,10 @@ export const MembersPage: React.FC = () => {
       {/* Top Header & Actions */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="font-heading font-semibold text-lg text-[#232b3d] dark:text-[#fffeff]">
+          <h1 className="font-heading font-semibold text-lg text-[#075985] dark:text-[#FFFFFF]">
             Household Members
           </h1>
-          <p className="text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70 font-sans">
+          <p className="text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75 font-sans">
             Manage members, availability time slots, and category preferences
           </p>
         </div>
@@ -212,7 +212,7 @@ export const MembersPage: React.FC = () => {
               resetForm();
               setShowAddModal(true);
             }}
-            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-[4px] bg-[#3a6993] hover:bg-[#3a6993]/90 text-[#fffeff] font-heading font-medium text-xs shadow-none transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-[4px] bg-[#0EA5E9] hover:bg-[#0284C7] text-[#FFFFFF] font-heading font-medium text-xs shadow-none transition-colors"
           >
             <UserPlus className="w-3.5 h-3.5" />
             <span>Add Family Member</span>
@@ -221,10 +221,10 @@ export const MembersPage: React.FC = () => {
       </div>
 
       {/* Members Table */}
-      <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] overflow-hidden shadow-xs">
+      <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] overflow-hidden shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-[#fffeff] dark:bg-[#232b3d] border-b border-[#232b3d]/12 dark:border-[#fffeff]/12 font-heading font-medium text-[#232b3d]/65 dark:text-[#fffeff]/70">
+            <thead className="bg-[#F0F9FF] dark:bg-[#082F49] border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30 font-heading font-medium text-[#075985]/70 dark:text-[#E0F2FE]/75">
               <tr>
                 <th className="py-3 px-4">Member</th>
                 <th className="py-3 px-3">Role</th>
@@ -234,16 +234,16 @@ export const MembersPage: React.FC = () => {
                 <th className="py-3 px-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#232b3d]/12 dark:divide-[#fffeff]/12">
+            <tbody className="divide-y divide-[#E0F2FE] dark:divide-[#7DD3FC]/30">
               {isLoading ? (
                 <tr>
-                  <td colSpan={6} className="py-8 text-center text-[#232b3d]/65 dark:text-[#fffeff]/70">
+                  <td colSpan={6} className="py-8 text-center text-[#075985]/70 dark:text-[#E0F2FE]/75">
                     Loading household members...
                   </td>
                 </tr>
               ) : members.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="py-8 text-center text-[#232b3d]/65 dark:text-[#fffeff]/70">
+                  <td colSpan={6} className="py-8 text-center text-[#075985]/70 dark:text-[#E0F2FE]/75">
                     No members found in this family.
                   </td>
                 </tr>
@@ -256,25 +256,25 @@ export const MembersPage: React.FC = () => {
                   return (
                     <tr
                       key={m.id}
-                      className="hover:bg-[#3a6993]/8 dark:hover:bg-[#fffeff]/5 transition-colors"
+                      className="hover:bg-[#0EA5E9]/8 dark:hover:bg-[#7DD3FC]/10 transition-colors"
                     >
                       {/* Name & Avatar */}
                       <td className="py-3.5 px-4">
                         <div className="flex items-center gap-2.5">
                           <div
                             className="w-7 h-7 rounded-[4px] flex items-center justify-center text-white font-heading font-semibold text-xs shrink-0"
-                            style={{ backgroundColor: '#3a6993' }}
+                            style={{ backgroundColor: '#0EA5E9' }}
                           >
                             {m.name.charAt(0).toUpperCase()}
                           </div>
                           <div>
-                            <div className="font-heading font-medium text-[#232b3d] dark:text-[#fffeff]">
+                            <div className="font-heading font-medium text-[#075985] dark:text-[#FFFFFF]">
                               {m.name}
                               {m.id === currentMember?.id && (
-                                <span className="ml-1.5 text-[10px] text-[#3a6993] dark:text-[#fffeff] font-normal">(You)</span>
+                                <span className="ml-1.5 text-[10px] text-[#0EA5E9] dark:text-[#FFFFFF] font-normal">(You)</span>
                               )}
                             </div>
-                            <div className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70">
+                            <div className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75">
                               {m.email}
                             </div>
                           </div>
@@ -283,11 +283,11 @@ export const MembersPage: React.FC = () => {
 
                       {/* Role */}
                       <td className="py-3.5 px-3">
-                        <span className="inline-flex items-center gap-1 text-[11px] font-heading capitalize text-[#232b3d]/65 dark:text-[#fffeff]/70">
+                        <span className="inline-flex items-center gap-1 text-[11px] font-heading capitalize text-[#075985]/70 dark:text-[#E0F2FE]/75">
                           {m.role === 'admin' ? (
-                            <Shield className="w-3 h-3 text-[#3a6993] dark:text-[#fffeff]" />
+                            <Shield className="w-3 h-3 text-[#0EA5E9] dark:text-[#FFFFFF]" />
                           ) : (
-                            <User className="w-3 h-3 text-[#3a6993] dark:text-[#fffeff]" />
+                            <User className="w-3 h-3 text-[#0EA5E9] dark:text-[#FFFFFF]" />
                           )}
                           {m.role}
                         </span>
@@ -295,10 +295,10 @@ export const MembersPage: React.FC = () => {
 
                       {/* Current Workload */}
                       <td className="py-3.5 px-3">
-                        <div className="font-mono text-[11px] text-[#232b3d] dark:text-[#fffeff]">
+                        <div className="font-mono text-[11px] text-[#075985] dark:text-[#FFFFFF]">
                           {workloadHrs} hrs
                         </div>
-                        <div className="text-[10px] text-[#232b3d]/65 dark:text-[#fffeff]/70">
+                        <div className="text-[10px] text-[#075985]/70 dark:text-[#E0F2FE]/75">
                           {m.activeTaskCount || 0} active tasks
                         </div>
                       </td>
@@ -308,9 +308,9 @@ export const MembersPage: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => handleOpenAvailability(m)}
-                          className="inline-flex items-center gap-1.5 px-2 py-1 rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d] text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:text-[#232b3d] dark:hover:text-[#fffeff] transition-colors"
+                          className="inline-flex items-center gap-1.5 px-2 py-1 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49] text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:text-[#075985] dark:hover:text-[#FFFFFF] transition-colors"
                         >
-                          <Calendar className="w-3 h-3 text-[#3a6993] dark:text-[#fffeff]" />
+                          <Calendar className="w-3 h-3 text-[#0EA5E9] dark:text-[#FFFFFF]" />
                           <span>{freeSlots}/28 slots</span>
                         </button>
                       </td>
@@ -320,9 +320,9 @@ export const MembersPage: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => handleOpenPreferences(m)}
-                          className="inline-flex items-center gap-1.5 px-2 py-1 rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d] text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:text-[#232b3d] dark:hover:text-[#fffeff] transition-colors max-w-[140px] truncate"
+                          className="inline-flex items-center gap-1.5 px-2 py-1 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49] text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:text-[#075985] dark:hover:text-[#FFFFFF] transition-colors max-w-[140px] truncate"
                         >
-                          <Heart className="w-3 h-3 text-[#3a6993] dark:text-[#fffeff]" />
+                          <Heart className="w-3 h-3 text-[#0EA5E9] dark:text-[#FFFFFF]" />
                           <span className="truncate">
                             {m.preferences?.length
                               ? `${m.preferences.length} categories`
@@ -339,7 +339,7 @@ export const MembersPage: React.FC = () => {
                               type="button"
                               onClick={() => setEditMember(m)}
                               title="Edit Member"
-                              className="p-1 rounded text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:text-[#232b3d] dark:hover:text-[#fffeff] hover:bg-[#3a6993]/8 dark:hover:bg-[#fffeff]/5"
+                              className="p-1 rounded text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:text-[#075985] dark:hover:text-[#FFFFFF] hover:bg-[#0EA5E9]/8 dark:hover:bg-[#7DD3FC]/10"
                             >
                               <Edit2 className="w-3.5 h-3.5" />
                             </button>
@@ -349,7 +349,7 @@ export const MembersPage: React.FC = () => {
                               type="button"
                               onClick={() => setDeleteMemberTarget(m)}
                               title="Remove Member"
-                              className="p-1 rounded text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:text-[#3a6993] dark:text-[#fffeff] hover:bg-[#3a6993]/8 dark:hover:bg-[#fffeff]/5"
+                              className="p-1 rounded text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:text-[#0EA5E9] dark:text-[#FFFFFF] hover:bg-[#0EA5E9]/8 dark:hover:bg-[#7DD3FC]/10"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
                             </button>
@@ -373,21 +373,21 @@ export const MembersPage: React.FC = () => {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
-              className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] max-w-xl w-full p-5 shadow-sm"
+              className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] max-w-xl w-full p-5 shadow-sm"
             >
-              <div className="flex items-center justify-between pb-3 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12">
+              <div className="flex items-center justify-between pb-3 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
                 <div>
-                  <h3 className="font-heading font-semibold text-sm text-[#232b3d] dark:text-[#fffeff]">
+                  <h3 className="font-heading font-semibold text-sm text-[#075985] dark:text-[#FFFFFF]">
                     Weekly Availability Grid
                   </h3>
-                  <p className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70">
+                  <p className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75">
                     Member: {availabilityMember.name} (Mon–Sun across 4 daily slots)
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setAvailabilityMember(null)}
-                  className="p-1 text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:text-[#232b3d] dark:hover:text-[#fffeff]"
+                  className="p-1 text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:text-[#075985] dark:hover:text-[#FFFFFF]"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -395,26 +395,26 @@ export const MembersPage: React.FC = () => {
 
               {/* Grid */}
               <div className="mt-4 overflow-x-auto">
-                <table className="w-full text-center text-xs border border-[#232b3d]/12 dark:border-[#fffeff]/12">
-                  <thead className="bg-[#fffeff] dark:bg-[#232b3d]">
+                <table className="w-full text-center text-xs border border-[#E0F2FE] dark:border-[#7DD3FC]/30">
+                  <thead className="bg-[#F0F9FF] dark:bg-[#082F49]">
                     <tr>
-                      <th className="p-2 text-left font-heading font-medium text-[#232b3d]/65 dark:text-[#fffeff]/70 border-r border-[#232b3d]/12 dark:border-[#fffeff]/12">
+                      <th className="p-2 text-left font-heading font-medium text-[#075985]/70 dark:text-[#E0F2FE]/75 border-r border-[#E0F2FE] dark:border-[#7DD3FC]/30">
                         Day
                       </th>
                       {TIME_SLOTS.map(slot => (
                         <th
                           key={slot}
-                          className="p-2 font-heading font-medium text-[#232b3d]/65 dark:text-[#fffeff]/70 border-r last:border-r-0 border-[#232b3d]/12 dark:border-[#fffeff]/12"
+                          className="p-2 font-heading font-medium text-[#075985]/70 dark:text-[#E0F2FE]/75 border-r last:border-r-0 border-[#E0F2FE] dark:border-[#7DD3FC]/30"
                         >
                           {slot}
                         </th>
                       ))}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#232b3d]/12 dark:divide-[#fffeff]/12">
+                  <tbody className="divide-y divide-[#E0F2FE] dark:divide-[#7DD3FC]/30">
                     {DAYS.map(day => (
                       <tr key={day}>
-                        <td className="p-2 text-left font-heading font-medium text-[#232b3d] dark:text-[#fffeff] border-r border-[#232b3d]/12 dark:border-[#fffeff]/12">
+                        <td className="p-2 text-left font-heading font-medium text-[#075985] dark:text-[#FFFFFF] border-r border-[#E0F2FE] dark:border-[#7DD3FC]/30">
                           {day.slice(0, 3)}
                         </td>
                         {TIME_SLOTS.map(slot => {
@@ -424,7 +424,7 @@ export const MembersPage: React.FC = () => {
                           return (
                             <td
                               key={slot}
-                              className="p-1 border-r last:border-r-0 border-[#232b3d]/12 dark:border-[#fffeff]/12"
+                              className="p-1 border-r last:border-r-0 border-[#E0F2FE] dark:border-[#7DD3FC]/30"
                             >
                               <button
                                 type="button"
@@ -432,8 +432,8 @@ export const MembersPage: React.FC = () => {
                                 onClick={() => toggleSlot(day, slot)}
                                 className={`w-full py-1.5 rounded-[3px] text-[10px] font-heading font-medium transition-colors ${
                                   isFree
-                                    ? 'bg-[#3a6993] text-[#fffeff] hover:bg-[#3a6993]/90'
-                                    : 'bg-[#232b3d]/10 text-[#232b3d]/65 dark:bg-[#fffeff]/10 dark:text-[#fffeff]/70 hover:bg-[#232b3d]/20'
+                                    ? 'bg-[#0EA5E9] text-[#FFFFFF] hover:bg-[#0284C7]'
+                                    : 'bg-[#E0F2FE] text-[#075985]/70 dark:bg-[#7DD3FC]/15 dark:text-[#E0F2FE]/75 hover:bg-[#075985]/20'
                                 }`}
                               >
                                 {isFree ? 'Free' : 'Busy'}
@@ -448,22 +448,22 @@ export const MembersPage: React.FC = () => {
               </div>
 
               {/* Modal footer */}
-              <div className="mt-5 flex items-center justify-between pt-3 border-t border-[#232b3d]/12 dark:border-[#fffeff]/12">
-                <div className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70">
+              <div className="mt-5 flex items-center justify-between pt-3 border-t border-[#E0F2FE] dark:border-[#7DD3FC]/30">
+                <div className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75">
                   Green cells indicate available hours.
                 </div>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => setAvailabilityMember(null)}
-                    className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:text-[#232b3d] dark:hover:text-[#fffeff]"
+                    className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:text-[#075985] dark:hover:text-[#FFFFFF]"
                   >
                     Cancel
                   </button>
                   <button
                     type="button"
                     onClick={handleSaveAvailability}
-                    className="px-3 py-1.5 text-xs font-heading rounded-[4px] bg-[#3a6993] hover:bg-[#3a6993]/90 text-[#fffeff] font-medium"
+                    className="px-3 py-1.5 text-xs font-heading rounded-[4px] bg-[#0EA5E9] hover:bg-[#0284C7] text-[#FFFFFF] font-medium"
                   >
                     Save Availability
                   </button>
@@ -482,28 +482,28 @@ export const MembersPage: React.FC = () => {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
-              className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] max-w-md w-full p-5 shadow-sm"
+              className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] max-w-md w-full p-5 shadow-sm"
             >
-              <div className="flex items-center justify-between pb-3 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12">
+              <div className="flex items-center justify-between pb-3 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
                 <div>
-                  <h3 className="font-heading font-semibold text-sm text-[#232b3d] dark:text-[#fffeff]">
+                  <h3 className="font-heading font-semibold text-sm text-[#075985] dark:text-[#FFFFFF]">
                     Task Category Preferences
                   </h3>
-                  <p className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70">
+                  <p className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75">
                     Member: {preferencesMember.name}
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setPreferencesMember(null)}
-                  className="p-1 text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:text-[#232b3d] dark:hover:text-[#fffeff]"
+                  className="p-1 text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:text-[#075985] dark:hover:text-[#FFFFFF]"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </div>
 
               <div className="mt-4 space-y-2">
-                <p className="text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70 mb-3">
+                <p className="text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75 mb-3">
                   Select household chores this member prefers to take. The assignment engine awards +20 preference points for matched categories.
                 </p>
 
@@ -517,30 +517,30 @@ export const MembersPage: React.FC = () => {
                         onClick={() => togglePreference(cat)}
                         className={`p-2.5 rounded-[4px] border text-left text-xs font-heading flex items-center justify-between transition-colors ${
                           isSelected
-                            ? 'border-[#3a6993] bg-[#3a6993]/8 text-[#3a6993] dark:text-[#fffeff] font-semibold'
-                            : 'border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:bg-[#3a6993]/8'
+                            ? 'border-[#0EA5E9] bg-[#0EA5E9]/8 text-[#0EA5E9] dark:text-[#FFFFFF] font-semibold'
+                            : 'border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:bg-[#0EA5E9]/8'
                         }`}
                       >
                         <span>{cat}</span>
-                        {isSelected && <Check className="w-3.5 h-3.5 text-[#3a6993] dark:text-[#fffeff]" />}
+                        {isSelected && <Check className="w-3.5 h-3.5 text-[#0EA5E9] dark:text-[#FFFFFF]" />}
                       </button>
                     );
                   })}
                 </div>
               </div>
 
-              <div className="mt-5 flex items-center justify-end gap-2 pt-3 border-t border-[#232b3d]/12 dark:border-[#fffeff]/12">
+              <div className="mt-5 flex items-center justify-end gap-2 pt-3 border-t border-[#E0F2FE] dark:border-[#7DD3FC]/30">
                 <button
                   type="button"
                   onClick={() => setPreferencesMember(null)}
-                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d]/65 dark:text-[#fffeff]/70"
+                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985]/70 dark:text-[#E0F2FE]/75"
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
                   onClick={handleSavePreferences}
-                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] bg-[#3a6993] hover:bg-[#3a6993]/90 text-[#fffeff] font-medium"
+                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] bg-[#0EA5E9] hover:bg-[#0284C7] text-[#FFFFFF] font-medium"
                 >
                   Save Preferences
                 </button>
@@ -558,16 +558,16 @@ export const MembersPage: React.FC = () => {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
-              className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] max-w-md w-full p-5 shadow-sm"
+              className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] max-w-md w-full p-5 shadow-sm"
             >
-              <div className="flex items-center justify-between pb-3 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12">
-                <h3 className="font-heading font-semibold text-sm text-[#232b3d] dark:text-[#fffeff]">
+              <div className="flex items-center justify-between pb-3 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
+                <h3 className="font-heading font-semibold text-sm text-[#075985] dark:text-[#FFFFFF]">
                   Add Household Member
                 </h3>
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="p-1 text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:text-[#232b3d] dark:hover:text-[#fffeff]"
+                  className="p-1 text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:text-[#075985] dark:hover:text-[#FFFFFF]"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -587,7 +587,7 @@ export const MembersPage: React.FC = () => {
                 className="mt-4 space-y-3.5"
               >
                 <div>
-                  <label className="block text-xs font-heading font-medium text-[#232b3d] dark:text-[#fffeff] mb-1">
+                  <label className="block text-xs font-heading font-medium text-[#075985] dark:text-[#FFFFFF] mb-1">
                     Full Name
                   </label>
                   <input
@@ -596,12 +596,12 @@ export const MembersPage: React.FC = () => {
                     value={formName}
                     onChange={e => setFormName(e.target.value)}
                     placeholder="e.g. David Chen"
-                    className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d]"
+                    className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-heading font-medium text-[#232b3d] dark:text-[#fffeff] mb-1">
+                  <label className="block text-xs font-heading font-medium text-[#075985] dark:text-[#FFFFFF] mb-1">
                     Email Address
                   </label>
                   <input
@@ -610,12 +610,12 @@ export const MembersPage: React.FC = () => {
                     value={formEmail}
                     onChange={e => setFormEmail(e.target.value)}
                     placeholder="david@example.com"
-                    className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d]"
+                    className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-heading font-medium text-[#232b3d] dark:text-[#fffeff] mb-1">
+                  <label className="block text-xs font-heading font-medium text-[#075985] dark:text-[#FFFFFF] mb-1">
                     Phone (Optional)
                   </label>
                   <input
@@ -623,36 +623,36 @@ export const MembersPage: React.FC = () => {
                     value={formPhone}
                     onChange={e => setFormPhone(e.target.value)}
                     placeholder="+1 (555) 000-0000"
-                    className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d]"
+                    className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-heading font-medium text-[#232b3d] dark:text-[#fffeff] mb-1">
+                  <label className="block text-xs font-heading font-medium text-[#075985] dark:text-[#FFFFFF] mb-1">
                     Household Role
                   </label>
                   <select
                     value={formRole}
                     onChange={e => setFormRole(e.target.value as any)}
-                    className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d]"
+                    className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49]"
                   >
                     <option value="member">Family Member</option>
                     <option value="admin">Family Admin</option>
                   </select>
                 </div>
 
-                <div className="mt-5 flex items-center justify-end gap-2 pt-3 border-t border-[#232b3d]/12 dark:border-[#fffeff]/12">
+                <div className="mt-5 flex items-center justify-end gap-2 pt-3 border-t border-[#E0F2FE] dark:border-[#7DD3FC]/30">
                   <button
                     type="button"
                     onClick={() => setShowAddModal(false)}
-                    className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d]/65 dark:text-[#fffeff]/70"
+                    className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985]/70 dark:text-[#E0F2FE]/75"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={createMutation.isPending}
-                    className="px-4 py-1.5 text-xs font-heading rounded-[4px] bg-[#3a6993] hover:bg-[#3a6993]/90 text-[#fffeff] font-medium"
+                    className="px-4 py-1.5 text-xs font-heading rounded-[4px] bg-[#0EA5E9] hover:bg-[#0284C7] text-[#FFFFFF] font-medium"
                   >
                     {createMutation.isPending ? 'Adding...' : 'Add Member'}
                   </button>
@@ -671,16 +671,16 @@ export const MembersPage: React.FC = () => {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
-              className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] max-w-md w-full p-5 shadow-sm"
+              className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] max-w-md w-full p-5 shadow-sm"
             >
-              <div className="flex items-center justify-between pb-3 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12">
-                <h3 className="font-heading font-semibold text-sm text-[#232b3d] dark:text-[#fffeff]">
+              <div className="flex items-center justify-between pb-3 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
+                <h3 className="font-heading font-semibold text-sm text-[#075985] dark:text-[#FFFFFF]">
                   Edit Member Profile
                 </h3>
                 <button
                   type="button"
                   onClick={() => setEditMember(null)}
-                  className="p-1 text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:text-[#232b3d] dark:hover:text-[#fffeff]"
+                  className="p-1 text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:text-[#075985] dark:hover:text-[#FFFFFF]"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -702,7 +702,7 @@ export const MembersPage: React.FC = () => {
                 className="mt-4 space-y-3.5"
               >
                 <div>
-                  <label className="block text-xs font-heading font-medium text-[#232b3d] dark:text-[#fffeff] mb-1">
+                  <label className="block text-xs font-heading font-medium text-[#075985] dark:text-[#FFFFFF] mb-1">
                     Name
                   </label>
                   <input
@@ -710,25 +710,25 @@ export const MembersPage: React.FC = () => {
                     required
                     value={editMember.name}
                     onChange={e => setEditMember({ ...editMember, name: e.target.value })}
-                    className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d]"
+                    className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-heading font-medium text-[#232b3d] dark:text-[#fffeff] mb-1">
+                  <label className="block text-xs font-heading font-medium text-[#075985] dark:text-[#FFFFFF] mb-1">
                     Phone
                   </label>
                   <input
                     type="text"
                     value={editMember.phone || ''}
                     onChange={e => setEditMember({ ...editMember, phone: e.target.value })}
-                    className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d]"
+                    className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49]"
                   />
                 </div>
 
                 {isAdmin && (
                   <div>
-                    <label className="block text-xs font-heading font-medium text-[#232b3d] dark:text-[#fffeff] mb-1">
+                    <label className="block text-xs font-heading font-medium text-[#075985] dark:text-[#FFFFFF] mb-1">
                       Role
                     </label>
                     <select
@@ -736,7 +736,7 @@ export const MembersPage: React.FC = () => {
                       onChange={e =>
                         setEditMember({ ...editMember, role: e.target.value as any })
                       }
-                      className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d]"
+                      className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49]"
                     >
                       <option value="member">Member</option>
                       <option value="admin">Admin</option>
@@ -744,18 +744,18 @@ export const MembersPage: React.FC = () => {
                   </div>
                 )}
 
-                <div className="mt-5 flex items-center justify-end gap-2 pt-3 border-t border-[#232b3d]/12 dark:border-[#fffeff]/12">
+                <div className="mt-5 flex items-center justify-end gap-2 pt-3 border-t border-[#E0F2FE] dark:border-[#7DD3FC]/30">
                   <button
                     type="button"
                     onClick={() => setEditMember(null)}
-                    className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d]/65 dark:text-[#fffeff]/70"
+                    className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985]/70 dark:text-[#E0F2FE]/75"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={updateMutation.isPending}
-                    className="px-4 py-1.5 text-xs font-heading rounded-[4px] bg-[#3a6993] hover:bg-[#3a6993]/90 text-[#fffeff] font-medium"
+                    className="px-4 py-1.5 text-xs font-heading rounded-[4px] bg-[#0EA5E9] hover:bg-[#0284C7] text-[#FFFFFF] font-medium"
                   >
                     {updateMutation.isPending ? 'Saving...' : 'Save Changes'}
                   </button>
@@ -774,22 +774,22 @@ export const MembersPage: React.FC = () => {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
-              className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] max-w-sm w-full p-5 shadow-sm"
+              className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] max-w-sm w-full p-5 shadow-sm"
             >
-              <div className="flex items-center gap-2.5 text-[#232b3d] dark:text-[#fffeff] mb-2">
+              <div className="flex items-center gap-2.5 text-[#075985] dark:text-[#FFFFFF] mb-2">
                 <AlertCircle className="w-5 h-5 shrink-0" />
-                <h3 className="font-heading font-semibold text-sm text-[#232b3d] dark:text-[#fffeff]">
+                <h3 className="font-heading font-semibold text-sm text-[#075985] dark:text-[#FFFFFF]">
                   Remove Member
                 </h3>
               </div>
-              <p className="text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70 leading-relaxed mb-4">
-                Are you sure you want to remove <span className="font-semibold text-[#232b3d] dark:text-[#fffeff]">{deleteMemberTarget.name}</span> from the household? Their pending tasks will be moved back to the Pending queue.
+              <p className="text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75 leading-relaxed mb-4">
+                Are you sure you want to remove <span className="font-semibold text-[#075985] dark:text-[#FFFFFF]">{deleteMemberTarget.name}</span> from the household? Their pending tasks will be moved back to the Pending queue.
               </p>
               <div className="flex items-center justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => setDeleteMemberTarget(null)}
-                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d]/65 dark:text-[#fffeff]/70"
+                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985]/70 dark:text-[#E0F2FE]/75"
                 >
                   Cancel
                 </button>
@@ -797,7 +797,7 @@ export const MembersPage: React.FC = () => {
                   type="button"
                   disabled={deleteMutation.isPending}
                   onClick={() => deleteMutation.mutate(deleteMemberTarget.id)}
-                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] bg-[#232b3d] text-[#fffeff] font-medium hover:bg-[#232b3d]/90"
+                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] bg-[#075985] text-[#FFFFFF] font-medium hover:bg-[#075985]/90"
                 >
                   {deleteMutation.isPending ? 'Removing...' : 'Confirm Remove'}
                 </button>

@@ -124,33 +124,33 @@ export const AssignmentsPage: React.FC = () => {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="font-heading font-semibold text-lg text-[#232b3d] dark:text-[#fffeff]">
+        <h1 className="font-heading font-semibold text-lg text-[#075985] dark:text-[#FFFFFF]">
           Assignments &amp; Approval Queue
         </h1>
-        <p className="text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70 font-sans">
+        <p className="text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75 font-sans">
           Review offered tasks, pending reassignments, and smart engine matches
         </p>
       </div>
 
       {/* Section 1: Admin Reassignment Approval Queue */}
       {isAdmin && (
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-4 shadow-xs">
-          <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-4 shadow-xs">
+          <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
             <div className="flex items-center gap-2">
-              <Inbox className="w-4 h-4 text-[#3a6993] dark:text-[#fffeff]" />
-              <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#232b3d] dark:text-[#fffeff]">
+              <Inbox className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+              <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#075985] dark:text-[#FFFFFF]">
                 Admin Reassignment Requests Queue
               </h2>
             </div>
-            <span className="text-[11px] font-mono text-[#232b3d]/65 dark:text-[#fffeff]/70">
+            <span className="text-[11px] font-mono text-[#075985]/70 dark:text-[#E0F2FE]/75">
               {pendingRequests.length} pending
             </span>
           </div>
 
           {loadingRequests ? (
-            <div className="py-6 text-center text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70">Loading requests...</div>
+            <div className="py-6 text-center text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75">Loading requests...</div>
           ) : pendingRequests.length === 0 ? (
-            <div className="py-6 text-center text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70">
+            <div className="py-6 text-center text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75">
               No pending reassignment requests from family members.
             </div>
           ) : (
@@ -158,21 +158,21 @@ export const AssignmentsPage: React.FC = () => {
               {pendingRequests.map(req => (
                 <div
                   key={req.id}
-                  className="p-3 rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#3a6993]/8 dark:bg-[#fffeff]/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs"
+                  className="p-3 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#0EA5E9]/8 dark:bg-[#7DD3FC]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs"
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-heading font-medium text-[#232b3d] dark:text-[#fffeff]">
+                      <span className="font-heading font-medium text-[#075985] dark:text-[#FFFFFF]">
                         {req.task?.title || 'Household Task'}
                       </span>
-                      <span className="px-1.5 py-0.2 rounded text-[10px] font-heading bg-[#232b3d]/10 dark:bg-[#fffeff]/10 text-[#232b3d] dark:text-[#fffeff]">
+                      <span className="px-1.5 py-0.2 rounded text-[10px] font-heading bg-[#E0F2FE] dark:bg-[#7DD3FC]/15 text-[#075985] dark:text-[#FFFFFF]">
                         Priority: {req.task?.priority || 'Normal'}
                       </span>
                     </div>
-                    <div className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70">
-                      Requested by <span className="font-medium text-[#232b3d] dark:text-[#fffeff]">{req.requestingMember?.name || 'Member'}</span>
+                    <div className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75">
+                      Requested by <span className="font-medium text-[#075985] dark:text-[#FFFFFF]">{req.requestingMember?.name || 'Member'}</span>
                     </div>
-                    <div className="text-[11px] text-[#232b3d] dark:text-[#fffeff] italic bg-[#fffeff] dark:bg-[#232b3d] p-1.5 rounded border border-[#232b3d]/12 dark:border-[#fffeff]/12">
+                    <div className="text-[11px] text-[#075985] dark:text-[#FFFFFF] italic bg-[#FFFFFF] dark:bg-[#082F49] p-1.5 rounded border border-[#E0F2FE] dark:border-[#7DD3FC]/30">
                       &ldquo;{req.reason}&rdquo;
                     </div>
                   </div>
@@ -182,7 +182,7 @@ export const AssignmentsPage: React.FC = () => {
                       type="button"
                       disabled={approveMutation.isPending}
                       onClick={() => approveMutation.mutate(req.id)}
-                      className="px-3 py-1.5 rounded-[4px] bg-[#3a6993] hover:bg-[#3a6993]/90 text-[#fffeff] font-heading font-medium text-xs flex items-center gap-1 transition-colors"
+                      className="px-3 py-1.5 rounded-[4px] bg-[#0EA5E9] hover:bg-[#0284C7] text-[#FFFFFF] font-heading font-medium text-xs flex items-center gap-1 transition-colors"
                     >
                       <Check className="w-3.5 h-3.5" />
                       <span>Approve &amp; Re-run Engine</span>
@@ -193,7 +193,7 @@ export const AssignmentsPage: React.FC = () => {
                         setDeclineReq(req);
                         setDeclineReason('');
                       }}
-                      className="px-3 py-1.5 rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d] dark:text-[#fffeff] hover:bg-[#3a6993]/8 dark:hover:bg-[#fffeff]/8 font-heading font-medium text-xs flex items-center gap-1 transition-colors"
+                      className="px-3 py-1.5 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985] dark:text-[#FFFFFF] hover:bg-[#0EA5E9]/8 dark:hover:bg-[#7DD3FC]/15 font-heading font-medium text-xs flex items-center gap-1 transition-colors"
                     >
                       <X className="w-3.5 h-3.5" />
                       <span>Decline</span>
@@ -207,21 +207,21 @@ export const AssignmentsPage: React.FC = () => {
       )}
 
       {/* Section 2: Tasks Offered to Me (Require Acceptance or Rejection) */}
-      <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-4 shadow-xs">
-        <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12">
+      <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-4 shadow-xs">
+        <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
           <div className="flex items-center gap-2">
-            <Clock className="w-4 h-4 text-[#3a6993] dark:text-[#fffeff]" />
-            <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#232b3d] dark:text-[#fffeff]">
+            <Clock className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+            <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#075985] dark:text-[#FFFFFF]">
               Tasks Offered to You ({offeredToMe.length})
             </h2>
           </div>
-          <span className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70">
+          <span className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75">
             Awaiting your confirmation
           </span>
         </div>
 
         {offeredToMe.length === 0 ? (
-          <div className="py-6 text-center text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70">
+          <div className="py-6 text-center text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75">
             No pending task offers currently assigned to your profile.
           </div>
         ) : (
@@ -229,22 +229,22 @@ export const AssignmentsPage: React.FC = () => {
             {offeredToMe.map(t => (
               <div
                 key={t.id}
-                className="p-3 rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#3a6993]/8 dark:bg-[#fffeff]/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs"
+                className="p-3 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#0EA5E9]/8 dark:bg-[#7DD3FC]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs"
               >
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-heading font-medium text-[#232b3d] dark:text-[#fffeff]">
+                    <span className="font-heading font-medium text-[#075985] dark:text-[#FFFFFF]">
                       {t.title}
                     </span>
-                    <span className="px-1.5 py-0.2 rounded text-[10px] font-heading bg-[#232b3d]/10 dark:bg-[#fffeff]/10 text-[#232b3d] dark:text-[#fffeff]">
+                    <span className="px-1.5 py-0.2 rounded text-[10px] font-heading bg-[#E0F2FE] dark:bg-[#7DD3FC]/15 text-[#075985] dark:text-[#FFFFFF]">
                       {t.category}
                     </span>
                   </div>
-                  <div className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70">
+                  <div className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75">
                     Deadline: {new Date(t.deadline).toLocaleDateString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })} • Effort: {t.effort} mins
                   </div>
                   {t.assigned_reason && (
-                    <div className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70 italic">
+                    <div className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75 italic">
                       Why you: &ldquo;{t.assigned_reason}&rdquo;
                     </div>
                   )}
@@ -254,7 +254,7 @@ export const AssignmentsPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => acceptMutation.mutate(t.id)}
-                    className="px-3 py-1.5 rounded-[4px] bg-[#3a6993] hover:bg-[#3a6993]/90 text-[#fffeff] font-heading font-medium text-xs flex items-center gap-1 transition-colors"
+                    className="px-3 py-1.5 rounded-[4px] bg-[#0EA5E9] hover:bg-[#0284C7] text-[#FFFFFF] font-heading font-medium text-xs flex items-center gap-1 transition-colors"
                   >
                     <Check className="w-3.5 h-3.5" />
                     <span>Accept Task</span>
@@ -265,7 +265,7 @@ export const AssignmentsPage: React.FC = () => {
                       setRejectTask(t);
                       setRejectReason('');
                     }}
-                    className="px-3 py-1.5 rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d] dark:text-[#fffeff] hover:bg-[#3a6993]/8 dark:hover:bg-[#fffeff]/8 font-heading font-medium text-xs flex items-center gap-1 transition-colors"
+                    className="px-3 py-1.5 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985] dark:text-[#FFFFFF] hover:bg-[#0EA5E9]/8 dark:hover:bg-[#7DD3FC]/15 font-heading font-medium text-xs flex items-center gap-1 transition-colors"
                   >
                     <X className="w-3.5 h-3.5" />
                     <span>Decline with Reason</span>
@@ -278,18 +278,18 @@ export const AssignmentsPage: React.FC = () => {
       </div>
 
       {/* Section 3: Active Tasks in Progress for Me */}
-      <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-4 shadow-xs">
-        <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12">
+      <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-4 shadow-xs">
+        <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
           <div className="flex items-center gap-2">
-            <UserCheck className="w-4 h-4 text-[#3a6993] dark:text-[#fffeff]" />
-            <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#232b3d] dark:text-[#fffeff]">
+            <UserCheck className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+            <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#075985] dark:text-[#FFFFFF]">
               Your Active Tasks ({activeAssignedToMe.length})
             </h2>
           </div>
         </div>
 
         {activeAssignedToMe.length === 0 ? (
-          <div className="py-6 text-center text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70">
+          <div className="py-6 text-center text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75">
             No accepted tasks currently on your plate.
           </div>
         ) : (
@@ -297,13 +297,13 @@ export const AssignmentsPage: React.FC = () => {
             {activeAssignedToMe.map(t => (
               <div
                 key={t.id}
-                className="p-3 rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 flex items-center justify-between text-xs"
+                className="p-3 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 flex items-center justify-between text-xs"
               >
                 <div>
-                  <div className="font-heading font-medium text-[#232b3d] dark:text-[#fffeff]">
+                  <div className="font-heading font-medium text-[#075985] dark:text-[#FFFFFF]">
                     {t.title}
                   </div>
-                  <div className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70">
+                  <div className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75">
                     Status: {t.status} • Due: {new Date(t.deadline).toLocaleDateString([], { month: 'short', day: 'numeric' })}
                   </div>
                 </div>
@@ -322,7 +322,7 @@ export const AssignmentsPage: React.FC = () => {
                         success('Marked completed', 'Done');
                       });
                     }}
-                    className="px-2.5 py-1 rounded-[4px] bg-[#3a6993] text-[#fffeff] font-heading font-medium text-[11px] hover:bg-[#3a6993]/90"
+                    className="px-2.5 py-1 rounded-[4px] bg-[#0EA5E9] text-[#FFFFFF] font-heading font-medium text-[11px] hover:bg-[#0284C7]"
                   >
                     Complete
                   </button>
@@ -336,17 +336,17 @@ export const AssignmentsPage: React.FC = () => {
       {/* DECLINE REASSIGNMENT REQUEST MODAL (ADMIN) */}
       <AnimatePresence>
         {declineReq && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#232b3d]/60">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#082F49]/60">
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
-              className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] max-w-sm w-full p-5 shadow-sm"
+              className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] max-w-sm w-full p-5 shadow-sm"
             >
-              <h3 className="font-heading font-semibold text-sm text-[#232b3d] dark:text-[#fffeff] mb-2">
+              <h3 className="font-heading font-semibold text-sm text-[#075985] dark:text-[#FFFFFF] mb-2">
                 Decline Reassignment Request
               </h3>
-              <p className="text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70 mb-3">
+              <p className="text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75 mb-3">
                 Task remains with {declineReq.requestingMember?.name || 'the requester'}.
               </p>
               <textarea
@@ -354,13 +354,13 @@ export const AssignmentsPage: React.FC = () => {
                 value={declineReason}
                 onChange={e => setDeclineReason(e.target.value)}
                 placeholder="Reason or guidance (optional)..."
-                className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d] text-[#232b3d] dark:text-[#fffeff] focus:border-[#3a6993] mb-4"
+                className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49] text-[#075985] dark:text-[#FFFFFF] focus:border-[#0EA5E9] mb-4"
               />
               <div className="flex items-center justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => setDeclineReq(null)}
-                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:bg-[#3a6993]/8 dark:hover:bg-[#fffeff]/8"
+                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:bg-[#0EA5E9]/8 dark:hover:bg-[#7DD3FC]/15"
                 >
                   Cancel
                 </button>
@@ -372,7 +372,7 @@ export const AssignmentsPage: React.FC = () => {
                       reason: declineReason
                     })
                   }
-                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] bg-[#232b3d] dark:bg-[#3a6993] text-[#fffeff] font-medium"
+                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] bg-[#075985] dark:bg-[#0EA5E9] text-[#FFFFFF] font-medium"
                 >
                   Confirm Decline
                 </button>
@@ -385,17 +385,17 @@ export const AssignmentsPage: React.FC = () => {
       {/* REJECT TASK MODAL (REQUIRES MIN 5 CHARS) */}
       <AnimatePresence>
         {rejectTask && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#232b3d]/60">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#082F49]/60">
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
-              className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] max-w-sm w-full p-5 shadow-sm"
+              className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] max-w-sm w-full p-5 shadow-sm"
             >
-              <h3 className="font-heading font-semibold text-sm text-[#232b3d] dark:text-[#fffeff] mb-2">
+              <h3 className="font-heading font-semibold text-sm text-[#075985] dark:text-[#FFFFFF] mb-2">
                 Decline Task Assignment
               </h3>
-              <p className="text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70 mb-3">
+              <p className="text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75 mb-3">
                 Please state why you are declining &ldquo;{rejectTask.title}&rdquo; (min 5 characters).
               </p>
               <textarea
@@ -405,16 +405,16 @@ export const AssignmentsPage: React.FC = () => {
                 value={rejectReason}
                 onChange={e => setRejectReason(e.target.value)}
                 placeholder="Reason (min 5 characters)..."
-                className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d] text-[#232b3d] dark:text-[#fffeff] focus:border-[#3a6993]"
+                className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49] text-[#075985] dark:text-[#FFFFFF] focus:border-[#0EA5E9]"
               />
-              <div className="text-[10px] text-[#232b3d]/65 dark:text-[#fffeff]/70 mt-1 text-right font-mono mb-4">
+              <div className="text-[10px] text-[#075985]/70 dark:text-[#E0F2FE]/75 mt-1 text-right font-mono mb-4">
                 {rejectReason.trim().length}/5 characters
               </div>
               <div className="flex items-center justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => setRejectTask(null)}
-                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d]/65 dark:text-[#fffeff]/70 hover:bg-[#3a6993]/8 dark:hover:bg-[#fffeff]/8"
+                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985]/70 dark:text-[#E0F2FE]/75 hover:bg-[#0EA5E9]/8 dark:hover:bg-[#7DD3FC]/15"
                 >
                   Cancel
                 </button>
@@ -427,7 +427,7 @@ export const AssignmentsPage: React.FC = () => {
                       reason: rejectReason
                     })
                   }
-                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] bg-[#232b3d] dark:bg-[#3a6993] text-[#fffeff] font-medium disabled:opacity-50"
+                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] bg-[#075985] dark:bg-[#0EA5E9] text-[#FFFFFF] font-medium disabled:opacity-50"
                 >
                   Confirm Decline
                 </button>

@@ -100,27 +100,27 @@ export const SettingsPage: React.FC = () => {
     <div className="space-y-6 max-w-4xl">
       {/* Header */}
       <div>
-        <h1 className="font-heading font-semibold text-lg text-[#232b3d] dark:text-[#fffeff]">
+        <h1 className="font-heading font-semibold text-lg text-[#075985] dark:text-[#FFFFFF]">
           Settings &amp; Family Preferences
         </h1>
-        <p className="text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70 font-sans">
+        <p className="text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75 font-sans">
           Manage household credentials, profile details, theme, and demo datasets
         </p>
       </div>
 
       <form onSubmit={handleSaveAll} className="space-y-6">
         {/* Card 1: Family Information & Join Code */}
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-5 shadow-xs space-y-4">
-          <div className="flex items-center gap-2 pb-2 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12">
-            <Home className="w-4 h-4 text-[#3a6993] dark:text-[#fffeff]" />
-            <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#232b3d] dark:text-[#fffeff]">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-5 shadow-xs space-y-4">
+          <div className="flex items-center gap-2 pb-2 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
+            <Home className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+            <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#075985] dark:text-[#FFFFFF]">
               Household Information
             </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-heading font-medium text-[#232b3d] dark:text-[#fffeff] mb-1">
+              <label className="block text-xs font-heading font-medium text-[#075985] dark:text-[#FFFFFF] mb-1">
                 Family Name
               </label>
               <input
@@ -128,10 +128,10 @@ export const SettingsPage: React.FC = () => {
                 disabled={!isAdmin}
                 value={familyName}
                 onChange={e => setFamilyName(e.target.value)}
-                className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d] disabled:opacity-60"
+                className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49] disabled:opacity-60"
               />
               {!isAdmin && (
-                <span className="text-[10px] text-[#232b3d]/65 dark:text-[#fffeff]/70 mt-0.5 block">
+                <span className="text-[10px] text-[#075985]/70 dark:text-[#E0F2FE]/75 mt-0.5 block">
                   Only the Family Admin can edit the household name.
                 </span>
               )}
@@ -139,24 +139,24 @@ export const SettingsPage: React.FC = () => {
 
             {/* Join Code */}
             <div>
-              <label className="block text-xs font-heading font-medium text-[#232b3d] dark:text-[#fffeff] mb-1">
+              <label className="block text-xs font-heading font-medium text-[#075985] dark:text-[#FFFFFF] mb-1">
                 Family Join Code
               </label>
               <div className="flex items-center gap-2">
-                <div className="px-3 py-2 rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d] font-mono text-sm tracking-widest font-semibold text-[#232b3d] dark:text-[#fffeff] flex-1">
+                <div className="px-3 py-2 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49] font-mono text-sm tracking-widest font-semibold text-[#075985] dark:text-[#FFFFFF] flex-1">
                   {family?.join_code || 'CODE'}
                 </div>
                 <button
                   type="button"
                   onClick={handleCopyCode}
                   title="Copy Code"
-                  className="px-3 py-2 rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-xs font-heading font-medium flex items-center gap-1 hover:bg-[#3a6993]/8 dark:hover:bg-[#fffeff]/5"
+                  className="px-3 py-2 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-xs font-heading font-medium flex items-center gap-1 hover:bg-[#0EA5E9]/8 dark:hover:bg-[#7DD3FC]/10"
                 >
-                  {copiedCode ? <Check className="w-3.5 h-3.5 text-[#3a6993] dark:text-[#fffeff]" /> : <Copy className="w-3.5 h-3.5" />}
+                  {copiedCode ? <Check className="w-3.5 h-3.5 text-[#0EA5E9] dark:text-[#FFFFFF]" /> : <Copy className="w-3.5 h-3.5" />}
                   <span>{copiedCode ? 'Copied' : 'Copy'}</span>
                 </button>
               </div>
-              <span className="text-[10px] text-[#232b3d]/65 dark:text-[#fffeff]/70 mt-1 block">
+              <span className="text-[10px] text-[#075985]/70 dark:text-[#E0F2FE]/75 mt-1 block">
                 Share this code with family members so they can join your household.
               </span>
             </div>
@@ -164,17 +164,17 @@ export const SettingsPage: React.FC = () => {
         </div>
 
         {/* Card 2: User Profile */}
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-5 shadow-xs space-y-4">
-          <div className="flex items-center gap-2 pb-2 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12">
-            <User className="w-4 h-4 text-[#3a6993] dark:text-[#fffeff]" />
-            <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#232b3d] dark:text-[#fffeff]">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-5 shadow-xs space-y-4">
+          <div className="flex items-center gap-2 pb-2 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
+            <User className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+            <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#075985] dark:text-[#FFFFFF]">
               My Profile
             </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-heading font-medium text-[#232b3d] dark:text-[#fffeff] mb-1">
+              <label className="block text-xs font-heading font-medium text-[#075985] dark:text-[#FFFFFF] mb-1">
                 Full Name
               </label>
               <input
@@ -182,12 +182,12 @@ export const SettingsPage: React.FC = () => {
                 required
                 value={profileName}
                 onChange={e => setProfileName(e.target.value)}
-                className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d]"
+                className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-heading font-medium text-[#232b3d] dark:text-[#fffeff] mb-1">
+              <label className="block text-xs font-heading font-medium text-[#075985] dark:text-[#FFFFFF] mb-1">
                 Phone Number
               </label>
               <input
@@ -195,17 +195,17 @@ export const SettingsPage: React.FC = () => {
                 value={profilePhone}
                 onChange={e => setProfilePhone(e.target.value)}
                 placeholder="+1 (555) 000-0000"
-                className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d]"
+                className="w-full px-3 py-2 text-xs rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49]"
               />
             </div>
           </div>
         </div>
 
         {/* Card 3: Notification Settings */}
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-5 shadow-xs space-y-4">
-          <div className="flex items-center gap-2 pb-2 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12">
-            <Bell className="w-4 h-4 text-[#3a6993] dark:text-[#fffeff]" />
-            <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#232b3d] dark:text-[#fffeff]">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-5 shadow-xs space-y-4">
+          <div className="flex items-center gap-2 pb-2 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
+            <Bell className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+            <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#075985] dark:text-[#FFFFFF]">
               Notification Preferences
             </h2>
           </div>
@@ -213,17 +213,17 @@ export const SettingsPage: React.FC = () => {
           <div className="space-y-3 text-xs">
             <div className="flex items-center justify-between">
               <div>
-                <span className="font-heading font-medium text-[#232b3d] dark:text-[#fffeff] block">
+                <span className="font-heading font-medium text-[#075985] dark:text-[#FFFFFF] block">
                   Deadline Warning Threshold
                 </span>
-                <span className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70">
+                <span className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75">
                   How early to alert members before task expiration
                 </span>
               </div>
               <select
                 value={reminderHours}
                 onChange={e => setReminderHours(Number(e.target.value))}
-                className="px-2.5 py-1 text-xs rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d]"
+                className="px-2.5 py-1 text-xs rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49]"
               >
                 <option value={2}>2 Hours Before</option>
                 <option value={12}>12 Hours Before</option>
@@ -235,21 +235,21 @@ export const SettingsPage: React.FC = () => {
         </div>
 
         {/* Card 4: Appearance */}
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-5 shadow-xs flex items-center justify-between">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-5 shadow-xs flex items-center justify-between">
           <div>
-            <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#232b3d] dark:text-[#fffeff]">
+            <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#075985] dark:text-[#FFFFFF]">
               Appearance &amp; Dark Mode
             </h2>
-            <p className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70 mt-0.5">
+            <p className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75 mt-0.5">
               Anthropic palette with warm paper background in light mode, deep obsidian in dark mode.
             </p>
           </div>
           <button
             type="button"
             onClick={toggleDarkMode}
-            className="px-3 py-1.5 rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#fffeff] dark:bg-[#232b3d] text-xs font-heading font-medium flex items-center gap-1.5 hover:border-[#3a6993]"
+            className="px-3 py-1.5 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#FFFFFF] dark:bg-[#082F49] text-xs font-heading font-medium flex items-center gap-1.5 hover:border-[#0EA5E9]"
           >
-            {darkMode ? <Sun className="w-3.5 h-3.5 text-[#3a6993] dark:text-[#fffeff]" /> : <Moon className="w-3.5 h-3.5 text-[#3a6993] dark:text-[#fffeff]" />}
+            {darkMode ? <Sun className="w-3.5 h-3.5 text-[#0EA5E9] dark:text-[#FFFFFF]" /> : <Moon className="w-3.5 h-3.5 text-[#0EA5E9] dark:text-[#FFFFFF]" />}
             <span>{darkMode ? 'Dark Mode Active' : 'Light Mode Active'}</span>
           </button>
         </div>
@@ -259,7 +259,7 @@ export const SettingsPage: React.FC = () => {
           <button
             type="submit"
             disabled={updateSettingsMutation.isPending}
-            className="px-5 py-2 rounded-[4px] bg-[#3a6993] hover:bg-[#3a6993]/90 text-[#fffeff] font-heading font-medium text-xs transition-colors shadow-none"
+            className="px-5 py-2 rounded-[4px] bg-[#0EA5E9] hover:bg-[#0284C7] text-[#FFFFFF] font-heading font-medium text-xs transition-colors shadow-none"
           >
             {updateSettingsMutation.isPending ? 'Saving...' : 'Save Settings'}
           </button>
@@ -268,22 +268,22 @@ export const SettingsPage: React.FC = () => {
 
       {/* Card 5: Administration & Demo Dataset (Admin Only) */}
       {isAdmin && (
-        <div className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] p-5 shadow-xs space-y-4">
-          <div className="flex items-center gap-2 pb-2 border-b border-[#232b3d]/12 dark:border-[#fffeff]/12">
-            <Shield className="w-4 h-4 text-[#3a6993] dark:text-[#fffeff]" />
-            <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#232b3d] dark:text-[#fffeff]">
+        <div className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] p-5 shadow-xs space-y-4">
+          <div className="flex items-center gap-2 pb-2 border-b border-[#E0F2FE] dark:border-[#7DD3FC]/30">
+            <Shield className="w-4 h-4 text-[#0EA5E9] dark:text-[#FFFFFF]" />
+            <h2 className="font-heading font-semibold text-xs uppercase tracking-wide text-[#075985] dark:text-[#FFFFFF]">
               Family Data Administration
             </h2>
           </div>
 
           <div className="pt-1">
             {/* Reset Button with Confirmation Dialog */}
-            <div className="p-3 rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 bg-[#3a6993]/5 dark:bg-[#fffeff]/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="p-3 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 bg-[#0EA5E9]/5 dark:bg-[#7DD3FC]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <span className="font-heading font-semibold text-xs text-[#232b3d] dark:text-[#fffeff] block mb-1">
+                <span className="font-heading font-semibold text-xs text-[#075985] dark:text-[#FFFFFF] block mb-1">
                   Reset Household Data
                 </span>
-                <p className="text-[11px] text-[#232b3d]/65 dark:text-[#fffeff]/70 leading-relaxed">
+                <p className="text-[11px] text-[#075985]/70 dark:text-[#E0F2FE]/75 leading-relaxed">
                   Clears all household tasks, resources, and guest members, returning the family to a fresh state.
                 </p>
               </div>
@@ -291,7 +291,7 @@ export const SettingsPage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setShowResetConfirm(true)}
-                className="py-2 px-3 rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d] dark:text-[#fffeff] hover:bg-[#232b3d]/10 dark:hover:bg-[#fffeff]/10 text-xs font-heading font-medium flex items-center justify-center gap-1.5 transition-colors shrink-0"
+                className="py-2 px-3 rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985] dark:text-[#FFFFFF] hover:bg-[#E0F2FE] dark:hover:bg-[#7DD3FC]/15 text-xs font-heading font-medium flex items-center justify-center gap-1.5 transition-colors shrink-0"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Reset Household</span>
@@ -309,20 +309,20 @@ export const SettingsPage: React.FC = () => {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
-              className="bg-[#fffeff] dark:bg-[#232b3d] border border-[#232b3d]/12 dark:border-[#fffeff]/12 rounded-[6px] max-w-sm w-full p-5 shadow-sm"
+              className="bg-[#FFFFFF] dark:bg-[#082F49] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 rounded-[6px] max-w-sm w-full p-5 shadow-sm"
             >
-              <div className="flex items-center gap-2 text-[#232b3d] dark:text-[#fffeff] mb-2">
+              <div className="flex items-center gap-2 text-[#075985] dark:text-[#FFFFFF] mb-2">
                 <AlertCircle className="w-5 h-5 shrink-0" />
                 <h3 className="font-heading font-semibold text-sm">Confirm Household Reset</h3>
               </div>
-              <p className="text-xs text-[#232b3d]/65 dark:text-[#fffeff]/70 leading-relaxed mb-4">
+              <p className="text-xs text-[#075985]/70 dark:text-[#E0F2FE]/75 leading-relaxed mb-4">
                 Are you sure you want to reset all tasks, resources, assignments and test members? Only your admin profile will be preserved.
               </p>
               <div className="flex items-center justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => setShowResetConfirm(false)}
-                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#232b3d]/12 dark:border-[#fffeff]/12 text-[#232b3d]/65 dark:text-[#fffeff]/70"
+                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] border border-[#E0F2FE] dark:border-[#7DD3FC]/30 text-[#075985]/70 dark:text-[#E0F2FE]/75"
                 >
                   Cancel
                 </button>
@@ -330,7 +330,7 @@ export const SettingsPage: React.FC = () => {
                   type="button"
                   disabled={resetMutation.isPending}
                   onClick={() => resetMutation.mutate()}
-                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] bg-[#232b3d] text-[#fffeff] font-medium hover:bg-[#232b3d]/90"
+                  className="px-3 py-1.5 text-xs font-heading rounded-[4px] bg-[#075985] text-[#FFFFFF] font-medium hover:bg-[#075985]/90"
                 >
                   {resetMutation.isPending ? 'Resetting...' : 'Yes, Reset Data'}
                 </button>

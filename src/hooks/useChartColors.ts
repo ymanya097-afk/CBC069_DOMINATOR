@@ -79,71 +79,67 @@ export function useChartColors(): ChartThemeColors {
   }, [darkMode]);
 
   if (isDark) {
-    // DARK MODE (card #232b3d)
-    // series 1: #3a6993 solid with a 1px #fffeff outline
-    // series 2: #fffeff solid
-    // series 3: #3a6993 at 70% with a #fffeff outline
-    // series 4: #fffeff at 55%
-    // Never draw anything in solid #232b3d on the dark background.
+    // DARK MODE (card #082F49)
+    // Dark mode series: #7DD3FC, #FFFFFF, #0EA5E9 at 80%, #E0F2FE at 60%
     return {
       isDark: true,
       themeKey: 'dark',
-      cardBg: '#232b3d',
-      cardBorder: 'rgba(255, 254, 255, 0.25)',
+      cardBg: '#082F49',
+      cardBorder: 'rgba(125, 211, 252, 0.3)',
 
       series1: {
-        fill: '#3a6993',
-        stroke: '#fffeff',
-        strokeWidth: 1
+        fill: '#7DD3FC',
+        stroke: '#7DD3FC',
+        strokeWidth: 0
       },
       series2: {
-        fill: '#fffeff',
-        stroke: '#fffeff',
-        strokeWidth: 1
+        fill: '#FFFFFF',
+        stroke: '#FFFFFF',
+        strokeWidth: 0
       },
       series3: {
-        fill: 'rgba(58, 105, 147, 0.70)',
-        stroke: '#fffeff',
-        strokeWidth: 1
+        fill: 'rgba(14, 165, 233, 0.8)',
+        stroke: 'rgba(14, 165, 233, 0.8)',
+        strokeWidth: 0
       },
       series4: {
-        fill: 'rgba(255, 254, 255, 0.55)',
-        stroke: 'rgba(255, 254, 255, 0.55)',
-        strokeWidth: 1
+        fill: 'rgba(224, 242, 254, 0.6)',
+        stroke: 'rgba(224, 242, 254, 0.6)',
+        strokeWidth: 0
       },
 
       line1: {
-        stroke: '#3a6993',
+        stroke: '#7DD3FC',
         strokeWidth: 2.5,
-        dot: { r: 4, fill: '#3a6993', stroke: '#fffeff', strokeWidth: 1 }
+        dot: { r: 4, fill: '#7DD3FC', stroke: '#082F49', strokeWidth: 1 }
       },
       line2: {
-        stroke: '#fffeff',
+        stroke: '#FFFFFF',
         strokeWidth: 2.5,
         strokeDasharray: '4 4',
-        dot: { r: 4, fill: '#fffeff', stroke: '#232b3d', strokeWidth: 1 }
+        dot: { r: 4, fill: '#FFFFFF', stroke: '#082F49', strokeWidth: 1 }
       },
 
-      gridStroke: 'rgba(255, 254, 255, 0.15)',
+      gridStroke: 'rgba(125, 211, 252, 0.15)',
       gridDash: '3 3',
-      axisStroke: 'rgba(255, 254, 255, 0.75)',
-      tickFill: 'rgba(255, 254, 255, 0.75)',
+      axisStroke: 'rgba(125, 211, 252, 0.3)',
+      tickFill: '#FFFFFF',
       tickFontSize: 12,
 
       tooltipStyle: {
-        backgroundColor: '#232b3d',
-        border: '1px solid rgba(255, 254, 255, 0.25)',
+        backgroundColor: '#082F49',
+        border: '1px solid rgba(125, 211, 252, 0.3)',
         borderRadius: '4px',
-        color: '#fffeff',
+        color: '#FFFFFF',
         fontSize: '12px',
         boxShadow: 'none'
       },
       tooltipItemStyle: {
-        color: '#fffeff',
+        color: '#FFFFFF',
         fontSize: '12px'
       },
       tooltipLabelStyle: {
-        color: '#fffeff',
+        color: '#FFFFFF',
         fontWeight: 600,
         fontSize: '12px',
         marginBottom: '4px'
@@ -151,80 +147,77 @@ export function useChartColors(): ChartThemeColors {
 
       legendWrapperStyle: {
         fontSize: '12px',
-        color: '#fffeff',
+        color: '#FFFFFF',
         paddingTop: '8px'
       },
-      legendTextColor: '#fffeff',
+      legendTextColor: '#FFFFFF',
 
-      sliceSeparator: '#232b3d',
+      sliceSeparator: '#082F49',
       sliceStrokeWidth: 2
     };
   }
 
-  // LIGHT MODE (card #fffeff)
-  // series 1: #3a6993 solid
-  // series 2: #232b3d solid
-  // series 3: #3a6993 at 55%
-  // series 4: #232b3d at 45%
+  // LIGHT MODE (card #FFFFFF)
+  // Light mode series: #0EA5E9, #075985, #7DD3FC, #0284C7
   return {
     isDark: false,
     themeKey: 'light',
-    cardBg: '#fffeff',
-    cardBorder: 'rgba(35, 43, 61, 0.25)',
+    cardBg: '#FFFFFF',
+    cardBorder: '#E0F2FE',
 
     series1: {
-      fill: '#3a6993',
-      stroke: '#3a6993',
+      fill: '#0EA5E9',
+      stroke: '#0EA5E9',
       strokeWidth: 0
     },
     series2: {
-      fill: '#232b3d',
-      stroke: '#232b3d',
+      fill: '#075985',
+      stroke: '#075985',
       strokeWidth: 0
     },
     series3: {
-      fill: 'rgba(58, 105, 147, 0.55)',
-      stroke: 'rgba(58, 105, 147, 0.55)',
+      fill: '#7DD3FC',
+      stroke: '#7DD3FC',
       strokeWidth: 0
     },
     series4: {
-      fill: 'rgba(35, 43, 61, 0.45)',
-      stroke: 'rgba(35, 43, 61, 0.45)',
+      fill: '#0284C7',
+      stroke: '#0284C7',
       strokeWidth: 0
     },
 
     line1: {
-      stroke: '#3a6993',
+      stroke: '#0EA5E9',
       strokeWidth: 2.5,
-      dot: { r: 4, fill: '#3a6993', stroke: '#fffeff', strokeWidth: 1 }
+      dot: { r: 4, fill: '#0EA5E9', stroke: '#FFFFFF', strokeWidth: 1 }
     },
     line2: {
-      stroke: '#232b3d',
+      stroke: '#075985',
       strokeWidth: 2.5,
       strokeDasharray: '4 4',
-      dot: { r: 4, fill: '#232b3d', stroke: '#fffeff', strokeWidth: 1 }
+      dot: { r: 4, fill: '#075985', stroke: '#FFFFFF', strokeWidth: 1 }
     },
 
-    gridStroke: 'rgba(35, 43, 61, 0.15)',
+    gridStroke: 'rgba(7, 89, 133, 0.15)',
     gridDash: '3 3',
-    axisStroke: 'rgba(35, 43, 61, 0.75)',
-    tickFill: 'rgba(35, 43, 61, 0.75)',
+    axisStroke: '#E0F2FE',
+    tickFill: '#075985',
     tickFontSize: 12,
 
     tooltipStyle: {
-      backgroundColor: '#fffeff',
-      border: '1px solid rgba(35, 43, 61, 0.25)',
+      backgroundColor: '#FFFFFF',
+      border: '1px solid #E0F2FE',
       borderRadius: '4px',
-      color: '#232b3d',
+      color: '#075985',
       fontSize: '12px',
       boxShadow: 'none'
     },
     tooltipItemStyle: {
-      color: '#232b3d',
+      color: '#075985',
       fontSize: '12px'
     },
     tooltipLabelStyle: {
-      color: '#232b3d',
+      color: '#075985',
       fontWeight: 600,
       fontSize: '12px',
       marginBottom: '4px'
@@ -232,12 +225,12 @@ export function useChartColors(): ChartThemeColors {
 
     legendWrapperStyle: {
       fontSize: '12px',
-      color: '#232b3d',
+      color: '#075985',
       paddingTop: '8px'
     },
-    legendTextColor: '#232b3d',
+    legendTextColor: '#075985',
 
-    sliceSeparator: '#fffeff',
+    sliceSeparator: '#FFFFFF',
     sliceStrokeWidth: 2
   };
 }
